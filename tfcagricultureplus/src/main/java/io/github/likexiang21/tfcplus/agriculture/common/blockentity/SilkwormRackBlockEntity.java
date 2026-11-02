@@ -49,9 +49,16 @@ public final class SilkwormRackBlockEntity extends TickableInventoryBlockEntity<
         return SilkwormRackMenu.create(this, playerInventory, containerId);
     }
 
+    public ItemStack displayStack() {
+        for (int slot = 0; slot < inventory.getSlots(); slot++) {
+            final ItemStack stack = inventory.getStackInSlot(slot);
+            if (!stack.isEmpty()) return stack;
+        }
+        return ItemStack.EMPTY;
+    }
+
     @Override
-    public Component getDisplayName() {
-        return Component.translatable("block_entity.tfcagricultureplus.silkworm_rack");
+    public Component getDisplayName() {        return Component.translatable("block_entity.tfcagricultureplus.silkworm_rack");
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state,

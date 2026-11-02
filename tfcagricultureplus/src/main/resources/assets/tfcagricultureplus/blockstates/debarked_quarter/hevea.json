@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_quarter/hevea",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_quarter/hevea"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_quarter/hevea",

@@ -1,0 +1,28 @@
+{
+  "name": "Harvest and waste",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:seeds/strawberry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Mature harvest",
+      "text": "Break a mature A, TFC or B crop with any tool. B replaces the default drop with a unified result:$(br2)$(li)seeds are returned;$(li)the crop product is retained;$(li)crop waste is added where the species defines it.$(br2)Immature crops do not drop products or seeds."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Double crops",
+      "text": "For two-block crops, breaking either half clears the other half first. The same result is produced once, not twice."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Creative mode",
+      "text": "In creative mode the block is removed without drops. Survival-only crop waste and seed return are not injected into the creative inventory."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:crop_waste/spinach",
+      "title": "Crop waste",
+      "text": "Crop waste is a real byproduct, not a second seed. It is used as compost green or animal feed where supported."
+    }
+  ]
+}

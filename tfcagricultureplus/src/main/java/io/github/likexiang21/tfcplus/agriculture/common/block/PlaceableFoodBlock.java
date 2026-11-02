@@ -2,6 +2,7 @@ package io.github.likexiang21.tfcplus.agriculture.common.block;
 
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.PlaceableFoodBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.registry.AgricultureBlocks;
+import java.util.List;
 import net.dries007.tfc.common.component.food.FoodCapability;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 
 /** Whole pie block. Remaining servings live in the TFC BE, never in blockstate. */
@@ -25,6 +27,18 @@ public final class PlaceableFoodBlock extends Block implements EntityBlock {
     @Override protected com.mojang.serialization.MapCodec<? extends Block> codec() { return simpleCodec(PlaceableFoodBlock::new); }
     @Override public BlockEntity newBlockEntity(net.minecraft.core.BlockPos pos, BlockState state) { return new PlaceableFoodBlockEntity(pos, state); }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) { return null; }
+    @Override public List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
+        // A full block is recoverable as its block item. Partially eaten blocks drop only
+        // their remaining servings from onRemove, so there is never a whole-block + slices dupe.
+        // The captured loot-context BE is required because vanilla has already removed the block.
+        if (params.getOptionalParameter(
+            net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY)
+            instanceof PlaceableFoodBlockEntity food && food.isFull()) {
+            final ItemStack preserved = food.foodStack();
+            return List.of(preserved.isEmpty() ? new ItemStack(state.getBlock().asItem()) : preserved.copy());
+        }
+        return List.of();
+    }
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
         if (this == AgricultureBlocks.WHOLE_PIE.get() && FoodCapability.isRotten(context.getItemInHand())) return null;
         return super.getStateForPlacement(context);
@@ -38,7 +52,11 @@ public final class PlaceableFoodBlock extends Block implements EntityBlock {
         return level.getBlockEntity(pos) instanceof PlaceableFoodBlockEntity pie && pie.takeServing(player) ? InteractionResult.sidedSuccess(level.isClientSide()) : InteractionResult.PASS;
     }
     @Override protected void onRemove(BlockState state, Level level, net.minecraft.core.BlockPos pos, BlockState replacement, boolean moving) {
-        if (!state.is(replacement.getBlock()) && level.getBlockEntity(pos) instanceof PlaceableFoodBlockEntity pie) pie.dropContents();
+        if (!state.is(replacement.getBlock())
+            && level.getBlockEntity(pos) instanceof PlaceableFoodBlockEntity pie
+            && !pie.isFull()) {
+            pie.dropContents();
+        }
         super.onRemove(state, level, pos, replacement, moving);
     }
 }

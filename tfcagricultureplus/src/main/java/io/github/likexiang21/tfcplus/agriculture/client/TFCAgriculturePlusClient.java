@@ -5,9 +5,18 @@ import io.github.likexiang21.tfcplus.agriculture.client.renderer.CuttingBoardBlo
 import io.github.likexiang21.tfcplus.agriculture.client.renderer.KnifeRackBlockEntityRenderer;
 import io.github.likexiang21.tfcplus.agriculture.client.renderer.ServingPlateBlockEntityRenderer;
 import io.github.likexiang21.tfcplus.agriculture.client.renderer.CookingPanBlockEntityRenderer;
+import io.github.likexiang21.tfcplus.agriculture.client.renderer.SimpleItemBlockEntityRenderer;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.DryingRackBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.MortarBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.NurseryTrayBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.PlaceableFoodBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.SilkwormRackBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.timber.LumberPileBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.registry.AgricultureBlockEntities;
 import io.github.likexiang21.tfcplus.agriculture.common.registry.AgricultureBlocks;
 import io.github.likexiang21.tfcplus.agriculture.common.registry.AgriculturePlates;
+import io.github.likexiang21.tfcplus.agriculture.common.registry.AgricultureSpices;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -16,6 +25,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 /**
@@ -43,10 +53,15 @@ public final class TFCAgriculturePlusClient {
                 ItemBlockRenderTypes.setRenderLayer(holder.get(), RenderType.cutout());
                 cutout++;
             }
+            for (final DeferredHolder<Block, ? extends Block> holder : AgricultureSpices.CROPS.values()) {
+                ItemBlockRenderTypes.setRenderLayer(holder.get(), RenderType.cutout());
+                cutout++;
+            }
             ItemBlockRenderTypes.setRenderLayer(AgriculturePlates.PLATE.get(), RenderType.cutout());
 
             // ② 渲染层自检
-            final int total = AgricultureBlocks.all().size();
+            final int total = AgricultureBlocks.all().size()
+                + AgricultureSpices.CROPS.size() + 1; // + serving plate
             TFCAgriculturePlus.LOGGER.info(
                 "[渲染层自检] 已注册方块 {} 个，全部有归属（cutout {} / 无需登记 {}）",
                 total, cutout, total - cutout);
@@ -80,6 +95,19 @@ public final class TFCAgriculturePlusClient {
      * {@code @EventBusSubscriber}（1.21.1 起自动判别总线）。
      */
     @SubscribeEvent
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+        // TFC fluff textures are grayscale and rely on a tint provider. B uses vanilla
+        // leaves models for its nut/spice trees, so it must provide the biome grass tint.
+        final java.util.List<Block> leaves = new java.util.ArrayList<>();
+        AgricultureBlocks.NUT_LEAVES.values().forEach(holder -> leaves.add(holder.get()));
+        AgricultureBlocks.SPICE_TREE_LEAVES.values().forEach(holder -> leaves.add(holder.get()));
+        event.register((state, level, pos, tintIndex) -> {
+            if (tintIndex != 0) return -1;
+            return level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) : 0x5A8F3C;
+        }, leaves.toArray(Block[]::new));
+    }
+
+    @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         // ① 刀具架：渲染挂在上面的工具/调料罐
         event.registerBlockEntityRenderer(
@@ -95,6 +123,18 @@ public final class TFCAgriculturePlusClient {
             CuttingBoardBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(AgriculturePlates.PLATE_BE.get(), ServingPlateBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(AgricultureBlockEntities.COOKING_PAN.get(), CookingPanBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(AgricultureBlockEntities.DRYING_RACK.get(),
+            ctx -> new SimpleItemBlockEntityRenderer<DryingRackBlockEntity>(DryingRackBlockEntity::getContent));
+        event.registerBlockEntityRenderer(AgricultureBlockEntities.MORTAR.get(),
+            ctx -> new SimpleItemBlockEntityRenderer<MortarBlockEntity>(MortarBlockEntity::getContent));
+        event.registerBlockEntityRenderer(AgricultureBlockEntities.NURSERY_TRAY.get(),
+            ctx -> new SimpleItemBlockEntityRenderer<NurseryTrayBlockEntity>(NurseryTrayBlockEntity::seed));
+        event.registerBlockEntityRenderer(AgricultureBlockEntities.LUMBER_PILE.get(),
+            ctx -> new SimpleItemBlockEntityRenderer<LumberPileBlockEntity>(LumberPileBlockEntity::getContent));
+        event.registerBlockEntityRenderer(AgricultureBlockEntities.PLACEABLE_FOOD.get(),
+            ctx -> new SimpleItemBlockEntityRenderer<PlaceableFoodBlockEntity>(PlaceableFoodBlockEntity::displayStack));
+        event.registerBlockEntityRenderer(AgricultureBlockEntities.SILKWORM_RACK.get(),
+            ctx -> new SimpleItemBlockEntityRenderer<SilkwormRackBlockEntity>(SilkwormRackBlockEntity::displayStack));
     }
 
     private TFCAgriculturePlusClient() {}

@@ -43,7 +43,8 @@ public final class DryingRackInteractions {
     }
 
     private static void message(Player player, String key) {
-        player.displayClientMessage(Component.translatable(MESSAGE + key), true);
+        player.displayClientMessage(
+            net.minecraft.network.chat.Component.translatable(MESSAGE + key), true);
     }
 
     private DryingRackInteractions() {}

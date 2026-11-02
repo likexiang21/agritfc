@@ -1,0 +1,28 @@
+{
+  "name": "收获与废枝叶",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:seeds/strawberry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "成熟收获",
+      "text": "用任意工具破坏成熟的 A/TFC/B 作物。B 会把默认掉落替换为统一结果：$(br2)$(li)返还种子；$(li)保留作物产品；$(li)按物种追加作物废枝叶。$(br2)未成熟作物不掉产品，也不掉种子。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "双格作物",
+      "text": "双格作物破坏任意一半时，会先清理另一半；最终结果只结算一次，不会双倍掉落。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "创造模式",
+      "text": "创造模式只移除方块，不产生掉落；作物废枝叶与种子返还不会进入创造背包。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:crop_waste/spinach",
+      "title": "作物废枝叶",
+      "text": "废枝叶是实际副产物，不是第二份种子；可作堆肥绿料或饲料。"
+    }
+  ]
+}

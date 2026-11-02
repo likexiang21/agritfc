@@ -1,0 +1,39 @@
+{
+  "name": "谷物捆与湿草",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:grain_bundle/wheat",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "为什么有谷物捆",
+      "text": "谷物成熟后掉落谷物捆，而不是直接掉散装谷粒。用刀脱粒可回收谷粒与湿草。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "湿草",
+      "text": "湿草是 B 的物品。放在干燥架或其它支持的干燥配方上干燥，得到稻草。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "谷物清单",
+      "text": "共有 10 种 A 谷物（黍、谷子、福尼奥米、斯佩耳特麦、二粒麦、单粒麦、珍珠粟、穇子、高粱、薏苡）与 6 种 TFC 谷物（大麦、燕麦、水稻、黑麦、小麦、玉米）的谷物捆。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "用途",
+      "text": "谷粒保留原有食物与配方用途。湿草可进入中级堆肥绿料标签。谷物捆本身是制作中间物，不是食物。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:grain_bundle/wheat",
+      "title": "谷物捆",
+      "text": "谷物捆是中间掉落；用刀脱粒得到谷粒与湿草。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:wet_grass",
+      "title": "湿草",
+      "text": "湿草干燥后得到稻草，也可作中级堆肥绿料。"
+    }
+  ]
+}

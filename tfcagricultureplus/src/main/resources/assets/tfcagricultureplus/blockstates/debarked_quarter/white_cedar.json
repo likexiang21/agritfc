@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_quarter/white_cedar",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_quarter/white_cedar"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_quarter/white_cedar",

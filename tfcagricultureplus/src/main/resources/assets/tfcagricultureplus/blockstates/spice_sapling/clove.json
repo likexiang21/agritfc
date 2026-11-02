@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "tfcagricultureplus:block/spice_sapling/clove"
+    },
+    "stage=1": {
+      "model": "tfcagricultureplus:block/spice_sapling/clove"
+    },
+    "stage=2": {
+      "model": "tfcagricultureplus:block/spice_sapling/clove"
+    }
+  }
+}

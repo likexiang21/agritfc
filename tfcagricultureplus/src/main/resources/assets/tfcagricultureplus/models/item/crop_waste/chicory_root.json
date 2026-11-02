@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfcfarmingplus:block/crop/chicory_root_age_5"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "persistent=true": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=1": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=2": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=3": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=4": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=5": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=6": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    },
+    "persistent=false,distance=7": {
+      "model": "tfcagricultureplus:block/spice_leaves/pimento"
+    }
+  }
+}

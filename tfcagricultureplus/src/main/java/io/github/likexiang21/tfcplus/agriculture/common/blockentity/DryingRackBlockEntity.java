@@ -92,7 +92,14 @@ public final class DryingRackBlockEntity extends TickableInventoryBlockEntity<It
             return;
         }
         if (rack.elapsedTicks() >= rack.getDuration()) {
-            rack.inventory.setStackInSlot(0, recipe.assemble(input));
+            // The rack accepts up to MAX_BATCH items in one slot; recipe.assemble() returns
+            // one output for one input, so scale the result by the batch size to avoid
+            // destroying the rest of the stack.
+            final int batch = input.getCount();
+            final ItemStack single = recipe.assemble(input.copyWithCount(1));
+            final ItemStack output = single.copy();
+            output.setCount(Math.min(output.getMaxStackSize(), single.getCount() * batch));
+            rack.inventory.setStackInSlot(0, output);
             rack.finished = true;
             rack.sync();
             level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.7F, 0.8F);
@@ -193,8 +200,9 @@ public final class DryingRackBlockEntity extends TickableInventoryBlockEntity<It
         @Override public ItemStack getStackInSlot(int slot) { return slot == 0 ? inventory.getStackInSlot(0) : ItemStack.EMPTY; }
         @Override public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
             if (slot != 0 || !canAccept(stack)) return stack;
+            final ItemStack input = stack.copy();
             final int before = getContent().getCount();
-            final ItemStack remainder = inventory.insertItem(0, stack, simulate);
+            final ItemStack remainder = inventory.insertItem(0, input, simulate);
             if (!simulate && before == 0 && remainder.getCount() < stack.getCount()) beginWork();
             return remainder;
         }

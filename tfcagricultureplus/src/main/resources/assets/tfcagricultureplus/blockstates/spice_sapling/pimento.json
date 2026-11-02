@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "tfcagricultureplus:block/spice_sapling/pimento"
+    },
+    "stage=1": {
+      "model": "tfcagricultureplus:block/spice_sapling/pimento"
+    },
+    "stage=2": {
+      "model": "tfcagricultureplus:block/spice_sapling/pimento"
+    }
+  }
+}

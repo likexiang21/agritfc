@@ -1,9 +1,14 @@
 package io.github.likexiang21.tfcplus.agriculture.common.registry;
 
 import io.github.likexiang21.tfcplus.agriculture.TFCAgriculturePlus;
+import io.github.likexiang21.tfcplus.agriculture.common.crop.CropWasteCrops;
+import io.github.likexiang21.tfcplus.agriculture.common.crop.GrainCrop;
+import io.github.likexiang21.tfcplus.agriculture.common.crop.PropagationStock;
 import io.github.likexiang21.tfcplus.agriculture.common.item.AdultSilkwormItem;
 import io.github.likexiang21.tfcplus.agriculture.common.item.MetalCanItem;
+import io.github.likexiang21.tfcplus.agriculture.common.item.PropagationStockItem;
 import io.github.likexiang21.tfcplus.agriculture.common.item.SawdustSoupBowlItem;
+import io.github.likexiang21.tfcplus.agriculture.common.item.SeedlingItem;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.world.item.Item;
@@ -34,6 +39,16 @@ public final class AgricultureItems {
     /** B-owned woodwork byproducts migrated from the MIT-licensed TFC Woodworking content. */
     public static final Map<String, DeferredHolder<Item, Item>> WOOD_BARK = new LinkedHashMap<>();
     public static final Map<String, DeferredHolder<Item, Item>> WOOD_BAST = new LinkedHashMap<>();
+
+    /** Vegetative planting stock: seed potatoes, corms, rhizomes, crown slips, runners. */
+    public static final Map<String, DeferredHolder<Item, Item>> PROPAGATION_STOCKS = new LinkedHashMap<>();
+    static {
+        for (final PropagationStock.Entry entry : PropagationStock.all()) {
+            PROPAGATION_STOCKS.put(entry.species(), ITEMS.register(
+                "propagation_stock/" + entry.species(),
+                () -> new PropagationStockItem(new Item.Properties().stacksTo(16), entry)));
+        }
+    }
 
     // ------------------------------------------------------------------
     // 物品属性
@@ -164,6 +179,71 @@ public final class AgricultureItems {
         ITEMS.registerSimpleItem("sawdust_dough", foodProps());
     public static final DeferredHolder<Item, Item> SAWDUST_BREAD =
         ITEMS.registerSimpleItem("sawdust_bread", foodProps());
+
+    /**
+     * P0 crop foundation: B-owned wet grass item.
+     *
+     * <p>This is intentionally a new B item, not a TFC item. It is produced by bundle
+     * threshing / wild-grass harvest / immature-crop compensation and dries 1:1 into
+     * {@code tfc:straw}. Its temporary model points at {@code tfc:item/straw} until the
+     * real B texture is drawn.
+     */
+    public static final DeferredHolder<Item, Item> WET_GRASS =
+        ITEMS.registerSimpleItem("wet_grass", materialProps());
+
+    /** Edible nut items; acorn/chestnut/pine_nut/hickory_nut are dropped by the TFC leaf mixin. */
+    public static final Map<String, DeferredHolder<Item, Item>> NUTS = new LinkedHashMap<>();
+    public static final Map<String, DeferredHolder<Item, Item>> GROUND_NUTS = new LinkedHashMap<>();
+    public static final Map<String, DeferredHolder<Item, Item>> NUT_SHELLS = new LinkedHashMap<>();
+
+    /** Generic nursery-tray output; its CROP_ID component stores the original seed item ID. */
+    public static final DeferredHolder<Item, Item> SEEDLING =
+        ITEMS.register("seedling", () -> new SeedlingItem(new Item.Properties()));
+
+    static {
+        for (final String nut : java.util.List.of(
+            "acorn", "chestnut", "pine_nut", "hickory_nut",
+            "pistachio", "cashew", "macadamia", "beechnut")) {
+            NUTS.put(nut, ITEMS.registerSimpleItem(nut, materialProps()));
+            GROUND_NUTS.put(nut, ITEMS.registerSimpleItem("ground_nut/" + nut, materialProps()));
+            NUT_SHELLS.put(nut, ITEMS.registerSimpleItem("nut_shell/" + nut, materialProps()));
+        }
+    }
+
+    /**
+     * P0 crop foundation: one bundle item per long-stem grain crop (A 10 + TFC 6).
+     * The item path carries the crop identity; threshing recipes use that path.
+     */
+    public static final Map<String, DeferredHolder<Item, Item>> GRAIN_BUNDLES = new LinkedHashMap<>();
+
+    static {
+        for (final GrainCrop crop : GrainCrop.values()) {
+            GRAIN_BUNDLES.put(crop.id(), ITEMS.register(crop.bundlePath(), () -> new Item(materialProps())));
+        }
+    }
+
+    /**
+     * Per-crop green waste: the 82 A/TFC crops whose real harvest/trim step produces
+     * leaf/stem/vine/pod/peel residue. Grain/oil/fiber/nut crops are intentionally absent.
+     * Firmalife's remaining plant blocks are covered below so they are not exempt.
+     */
+    public static final Map<String, DeferredHolder<Item, Item>> CROP_WASTE = new LinkedHashMap<>();
+
+    /** Firmalife plant blocks that have no B crop counterpart still get a B residue outlet. */
+    public static final java.util.List<String> FIRMALIFE_WASTE = java.util.List.of(
+        "cocoa_branch", "cocoa_growing_branch", "cocoa_leaves", "cocoa_sapling",
+        "fig_branch", "fig_growing_branch", "fig_leaves", "fig_sapling",
+        "nightshade_bush", "pineapple_bush", "wild_red_grapes", "wild_white_grapes",
+        "grape_string_red", "grape_string_white");
+
+    static {
+        for (final String crop : CropWasteCrops.ALL) {
+            CROP_WASTE.put(crop, ITEMS.register("crop_waste/" + crop, () -> new Item(materialProps())));
+        }
+        for (final String crop : FIRMALIFE_WASTE) {
+            CROP_WASTE.put(crop, ITEMS.register("crop_waste/" + crop, () -> new Item(materialProps())));
+        }
+    }
 
     static {
         registerBakingItems();

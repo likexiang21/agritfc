@@ -1,15 +1,17 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/ipe"
+    "L": {
+      "item": "afc:wood/lumber/ipe"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:half_cabinet/ipe",
-    "count": 1
-  },
   "pattern": [
-    "PPP"
+    "LLL",
+    "L L"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:half_cabinet/ipe"
+  }
 }

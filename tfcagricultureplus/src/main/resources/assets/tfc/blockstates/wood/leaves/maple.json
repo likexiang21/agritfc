@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "nut_state=0": {
+      "model": "tfc:block/wood/leaves/maple_dynamic"
+    },
+    "nut_state=1": {
+      "model": "tfc:block/wood/leaves/maple_dynamic"
+    },
+    "nut_state=2": {
+      "model": "tfc:block/wood/leaves/maple_dynamic"
+    },
+    "nut_state=3": {
+      "model": "tfc:block/wood/leaves/maple_dynamic"
+    }
+  }
+}

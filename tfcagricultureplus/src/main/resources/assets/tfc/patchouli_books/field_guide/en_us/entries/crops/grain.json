@@ -1,0 +1,39 @@
+{
+  "name": "Grain bundles and wet grass",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:grain_bundle/wheat",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Why bundles",
+      "text": "Grain crops drop a grain bundle instead of loose grain. The bundle is threshed with a knife to recover grain and wet grass."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wet grass",
+      "text": "Wet grass is a B item. Dry it on a drying rack or another supported drying recipe to obtain straw."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Grain list",
+      "text": "Bundles exist for ten A grains (millet, foxtail millet, fonio, spelt, emmer, einkorn, pearl millet, finger millet, sorghum, Job's tears) and six TFC grains (barley, oat, rice, rye, wheat, maize)."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Uses",
+      "text": "Grain keeps its normal food and recipe uses. Wet grass is accepted by medium compost greens. Bundles themselves are crafting intermediates, not food."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:grain_bundle/wheat",
+      "title": "Grain bundle",
+      "text": "The bundle is the intermediate drop. Thresh it with a knife for grain and wet grass."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:wet_grass",
+      "title": "Wet grass",
+      "text": "Dry wet grass to obtain straw; it is also a medium compost green."
+    }
+  ]
+}

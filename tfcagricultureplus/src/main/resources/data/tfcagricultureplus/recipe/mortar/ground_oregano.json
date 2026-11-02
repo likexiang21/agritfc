@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/oregano"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/oregano",
+    "count": 1
+  },
+  "grind_time": 4
+}

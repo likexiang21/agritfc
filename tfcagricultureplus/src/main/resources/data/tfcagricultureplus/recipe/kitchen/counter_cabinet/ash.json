@@ -1,17 +1,18 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "tfc:wood/planks/ash"
+    "L": {
+      "item": "tfc:wood/lumber/ash"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:counter_cabinet/ash",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "PPP",
-    "   "
+    "LLL",
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:counter_cabinet/ash"
+  }
 }

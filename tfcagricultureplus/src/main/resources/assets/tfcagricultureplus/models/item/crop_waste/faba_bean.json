@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfcfarmingplus:block/crop/faba_bean_age_5_top"
+  }
+}

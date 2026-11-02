@@ -1,0 +1,39 @@
+{
+  "name": "种子与育苗",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:nursery_tray",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "直播与育苗",
+      "text": "TFC 种子保留 TFC 直接播种。A/B 种子按物种繁殖方式处理：$(br2)$(li)种子直播型可直接种在耕地上；$(li)育苗、匍匐茎、块茎、根茎、球茎、冠芽、分株型必须经过育苗盘。$(br2)非直播型种子仍需育苗后移栽。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "育苗盘",
+      "text": "把 A/B 种子放入育苗盘。育苗盘会培育幼苗；成熟后取出幼苗。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "移栽",
+      "text": "手持幼苗右键合适的耕地即可移栽。育苗盘、种子与幼苗的数据会随存档和区块重载保存。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "种子处理",
+      "text": "种子可带三种已保存的处理状态：浸种、催芽、拌种。状态记录在种子物品上，不是全局玩家标记。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:nursery_tray",
+      "title": "育苗盘",
+      "text": "育苗盘是 A/B 种子的培育设备；TFC 种子不需要。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:seedling",
+      "title": "幼苗",
+      "text": "从育苗盘取出幼苗，再移栽到合适耕地。"
+    }
+  ]
+}

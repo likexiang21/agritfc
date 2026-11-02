@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_half/mangrove",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_half/mangrove"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_half/mangrove",

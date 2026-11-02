@@ -1,16 +1,20 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/tualang"
+    "L": {
+      "item": "afc:wood/lumber/tualang"
+    },
+    "R": {
+      "tag": "c:rods/wooden"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:spice_rack/tualang",
-    "count": 1
-  },
   "pattern": [
-    "P P",
-    "PPP"
+    "LLL",
+    "R R"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:spice_rack/tualang"
+  }
 }

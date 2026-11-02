@@ -1,0 +1,39 @@
+{
+  "name": "Wild mushrooms and bags",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:mushroom_bag",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Fifteen species",
+      "text": "B adds fifteen wild mushrooms. Eleven are cultivable in a mushroom bag; four are natural-only and reject the bag."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wild growth",
+      "text": "Wild mushrooms grow through three ages and can spread to nearby compatible soil. They need dirt, grass or another supported substrate."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mushroom bag",
+      "text": "The bag has four visible stages. It grows only within the species' temperature tolerance; below or above it, growth stops. A bag has a limited number of uses before it is spent."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Natural-only",
+      "text": "Natural-only species are marked in the species registry. Right-clicking their bag input is rejected with a message; they cannot be cultivated."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:mushroom_bag",
+      "title": "Mushroom bag",
+      "text": "Only the eleven cultivable species grow in the bag."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:wild_mushroom/oyster",
+      "title": "Wild mushroom",
+      "text": "Wild species grow/spread on compatible soil; natural-only species reject the bag."
+    }
+  ]
+}

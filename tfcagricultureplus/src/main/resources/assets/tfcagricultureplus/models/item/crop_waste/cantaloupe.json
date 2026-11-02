@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfcfarmingplus:block/crop/cantaloupe_age_5"
+  }
+}

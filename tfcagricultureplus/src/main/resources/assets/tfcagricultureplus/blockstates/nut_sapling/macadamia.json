@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "tfcagricultureplus:block/nut_sapling/macadamia"
+    },
+    "stage=1": {
+      "model": "tfcagricultureplus:block/nut_sapling/macadamia"
+    },
+    "stage=2": {
+      "model": "tfcagricultureplus:block/nut_sapling/macadamia"
+    }
+  }
+}

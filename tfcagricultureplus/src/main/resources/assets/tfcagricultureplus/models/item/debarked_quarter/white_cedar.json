@@ -1,3 +1,6 @@
 {
-  "parent": "tfcagricultureplus:block/debarked_quarter/white_cedar"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tfcagricultureplus:item/debarked_quarter/white_cedar"
+  }
 }

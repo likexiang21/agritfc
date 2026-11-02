@@ -1,3 +1,6 @@
 {
-  "parent": "tfcagricultureplus:block/debarked_half/pine"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tfcagricultureplus:item/debarked_half/pine"
+  }
 }

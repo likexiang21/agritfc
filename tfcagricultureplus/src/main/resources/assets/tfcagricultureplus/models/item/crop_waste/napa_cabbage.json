@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfcfarmingplus:block/crop/napa_cabbage_age_5"
+  }
+}

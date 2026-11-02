@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/saffron"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/saffron",
+    "count": 1
+  },
+  "grind_time": 4
+}

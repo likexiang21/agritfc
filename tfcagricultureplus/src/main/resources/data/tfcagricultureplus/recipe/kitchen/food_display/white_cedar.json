@@ -1,17 +1,21 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "tfc:wood/planks/white_cedar"
+    "L": {
+      "item": "tfc:wood/lumber/white_cedar"
+    },
+    "G": {
+      "item": "minecraft:glass"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:food_display/white_cedar",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "P P",
-    "PPP"
+    "LLL",
+    "LGL",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:food_display/white_cedar"
+  }
 }

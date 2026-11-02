@@ -22,7 +22,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
@@ -63,7 +62,25 @@ public final class CookingPanBlockEntity extends TickableInventoryBlockEntity<It
     public CookingPanBlockEntity(BlockPos pos, BlockState state) {
         super(AgricultureBlockEntities.COOKING_PAN.get(), pos, state, defaultInventory(INGREDIENT_SLOTS),
             TFCAgriculturePlus.MOD_ID);
-        automationView = inventory;
+        automationView = new IItemHandler() {
+            @Override public int getSlots() { return inventory.getSlots(); }
+            @Override public ItemStack getStackInSlot(int slot) { return inventory.getStackInSlot(slot); }
+            @Override public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+                if (stack.isEmpty() || !isItemValid(slot, stack)) return stack;
+                if (simulate) {
+                    if (entries.size() >= INGREDIENT_SLOTS || firstEmptySlot() < 0) return stack;
+                    return stack.copyWithCount(Math.max(0, stack.getCount() - 1));
+                }
+                return addIngredient(stack) ? stack.copyWithCount(Math.max(0, stack.getCount() - 1)) : stack;
+            }
+            @Override public ItemStack extractItem(int slot, int amount, boolean simulate) {
+                return inventory.extractItem(slot, amount, simulate);
+            }
+            @Override public int getSlotLimit(int slot) { return 1; }
+            @Override public boolean isItemValid(int slot, ItemStack stack) {
+                return FoodCapability.has(stack) && !FoodCapability.isRotten(stack);
+            }
+        };
     }
 
     public FluidTank oilTank() { return oilTank; }
@@ -83,6 +100,7 @@ public final class CookingPanBlockEntity extends TickableInventoryBlockEntity<It
         if (level == null || level.isClientSide() || hasOil() || stack.isEmpty()) return false;
         final var key = BuiltInRegistries.ITEM.getKey(stack.getItem());
         if (!key.getNamespace().equals("firmalife") || !key.getPath().equals("food/butter")) return false;
+        if (FoodCapability.isRotten(stack)) return false;
         solidOil = true; oilType = "butter"; sync(); return true;
     }
     public ItemStack renderStack(int slot) {
@@ -97,7 +115,7 @@ public final class CookingPanBlockEntity extends TickableInventoryBlockEntity<It
 
     public boolean addIngredient(ItemStack held) {
         if (level == null || level.isClientSide() || held.isEmpty() || !hasHeat() || !hasOil()) return false;
-        if (!FoodCapability.has(held)) return false;
+        if (!FoodCapability.has(held) || FoodCapability.isRotten(held)) return false;
         if (entries.size() >= INGREDIENT_SLOTS) return false;
         final int slot = firstEmptySlot();
         if (slot < 0) return false;
@@ -108,11 +126,17 @@ public final class CookingPanBlockEntity extends TickableInventoryBlockEntity<It
         return true;
     }
 
-    public boolean stir(SpatulaItem spatula, ItemStack spatulaStack, net.minecraft.world.entity.player.Player player) {
+    public boolean stir(SpatulaItem spatula, ItemStack spatulaStack,
+                        net.minecraft.world.entity.player.Player player,
+                        net.minecraft.world.InteractionHand hand) {
         if (level == null || level.isClientSide() || entries.isEmpty() || !hasHeat()) return false;
         final long now = level.getGameTime();
         for (final PanCookingEntry entry : entries) entry.stir(now);
-        spatulaStack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
+        final net.minecraft.world.entity.EquipmentSlot slot =
+            hand == net.minecraft.world.InteractionHand.MAIN_HAND
+                ? net.minecraft.world.entity.EquipmentSlot.MAINHAND
+                : net.minecraft.world.entity.EquipmentSlot.OFFHAND;
+        spatulaStack.hurtAndBreak(1, player, slot);
         sync();
         return true;
     }
@@ -131,13 +155,6 @@ public final class CookingPanBlockEntity extends TickableInventoryBlockEntity<It
         for (int i = 0; i < inventory.getSlots(); i++) inventory.setStackInSlot(i, ItemStack.EMPTY);
         sync();
         return result;
-    }
-
-    public Component status() {
-        if (!hasHeat()) return Component.translatable("message.tfcagricultureplus.pan.no_heat");
-        if (!hasOil()) return Component.translatable("message.tfcagricultureplus.pan.no_oil");
-        if (entries.isEmpty()) return Component.translatable("message.tfcagricultureplus.pan.empty");
-        return Component.translatable("message.tfcagricultureplus.pan.contents", entries.size(), oilTank.getFluidAmount());
     }
 
     private int firstEmptySlot() {
@@ -191,11 +208,9 @@ public final class CookingPanBlockEntity extends TickableInventoryBlockEntity<It
     }
 
     private void sync() {
-        setChanged();
-        if (level != null && !level.isClientSide()) {
-            final BlockState state = getBlockState();
-            level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_CLIENTS);
-        }
+        // TFCBlockEntity.markForSync sends the block-entity update packet; sendBlockUpdated
+        // alone only sends the block state and leaves entries/oil invisible on the client.
+        markForSync();
     }
 
     @Override public net.neoforged.neoforge.items.IItemHandler bItemHandler() { return inventory; }

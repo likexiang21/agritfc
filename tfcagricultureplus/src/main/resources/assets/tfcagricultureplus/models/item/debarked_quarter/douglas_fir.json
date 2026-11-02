@@ -1,3 +1,6 @@
 {
-  "parent": "tfcagricultureplus:block/debarked_quarter/douglas_fir"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tfcagricultureplus:item/debarked_quarter/douglas_fir"
+  }
 }

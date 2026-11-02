@@ -1,0 +1,28 @@
+{
+  "name": "TFC 浆果灌木",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:bush_waste/blackberry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "十种 TFC 灌木",
+      "text": "B 处理 10 种 TFC 浆果灌木：黑莓、蓝莓、御膳橘、云莓、蔓越莓、接骨木莓、醋栗、树莓、雪果、冬青。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "收获",
+      "text": "破坏成熟 TFC 灌木会被拦截：采收后保留采摘状态，而不是直接移除。空手右键采收同样由 B 处理。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "废枝",
+      "text": "每种灌木产出自己的灌木废枝。这 10 个废枝与 102 个作物/香料废枝叶是不同物品。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:bush_waste/blackberry",
+      "title": "灌木废枝",
+      "text": "10 种 TFC 灌木各有废枝；采收后保留采摘状态。"
+    }
+  ]
+}

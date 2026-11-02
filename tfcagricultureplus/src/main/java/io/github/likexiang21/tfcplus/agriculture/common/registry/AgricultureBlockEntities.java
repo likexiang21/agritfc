@@ -7,6 +7,8 @@ import io.github.likexiang21.tfcplus.agriculture.common.blockentity.DryingRackBl
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.KitchenStorageBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.KnifeRackBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.MortarBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.MushroomBagBlockEntity;
+import io.github.likexiang21.tfcplus.agriculture.common.blockentity.NurseryTrayBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.PlaceableFoodBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.SilkwormRackBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.timber.LumberPileBlockEntity;
@@ -118,6 +120,24 @@ public final class AgricultureBlockEntities {
             "silkworm_rack",
             SilkwormRackBlockEntity::new,
             java.util.stream.Stream.of(AgricultureBlocks.SILKWORM_RACK)
+        );
+
+    /** P0-E: one four-stage mushroom bag; species/progress live in the BE. */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MushroomBagBlockEntity>> MUSHROOM_BAG =
+        RegistrationHelpers.register(
+            BLOCK_ENTITIES,
+            "mushroom_bag",
+            MushroomBagBlockEntity::new,
+            java.util.stream.Stream.of(AgricultureBlocks.MUSHROOM_BAG)
+        );
+
+    /** P0-M nursery tray. */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NurseryTrayBlockEntity>> NURSERY_TRAY =
+        RegistrationHelpers.register(
+            BLOCK_ENTITIES,
+            "nursery_tray",
+            NurseryTrayBlockEntity::new,
+            java.util.stream.Stream.of(AgricultureBlocks.NURSERY_TRAY)
         );
 
     /** K1 kitchen furniture; every wood variant points to the same TFC inventory BE type. */

@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:cashew"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_nut/cashew",
+    "count": 1
+  },
+  "grind_time": 4
+}

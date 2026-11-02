@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfcfarmingplus:block/crop/garland_chrysanthemum_age_5"
+  }
+}

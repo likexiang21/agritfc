@@ -1,15 +1,17 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/ginkgo"
+    "L": {
+      "item": "afc:wood/lumber/ginkgo"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:half_cabinet/ginkgo",
-    "count": 1
-  },
   "pattern": [
-    "PPP"
+    "LLL",
+    "L L"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:half_cabinet/ginkgo"
+  }
 }

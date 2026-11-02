@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_quarter/ginkgo",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_quarter/ginkgo"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_quarter/ginkgo",

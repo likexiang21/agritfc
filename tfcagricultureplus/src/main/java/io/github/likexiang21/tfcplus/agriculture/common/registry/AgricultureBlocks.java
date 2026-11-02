@@ -1,6 +1,16 @@
 package io.github.likexiang21.tfcplus.agriculture.common.registry;
 
 import io.github.likexiang21.tfcplus.agriculture.common.block.CuttingBoardBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.MushroomBagBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.NurseryTrayBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.NutLeavesBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.NutTreeSaplingBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.SpiceTreeLeavesBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.SpiceTreeSaplingBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.crop.NutTreeSpecies;
+import io.github.likexiang21.tfcplus.agriculture.common.crop.SpiceTreeSpecies;
+import io.github.likexiang21.tfcplus.agriculture.common.block.WildMushroomBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.crop.MushroomSpecies;
 import io.github.likexiang21.tfcplus.agriculture.common.block.KnifeRackBlock;
 import io.github.likexiang21.tfcplus.agriculture.common.block.LogCuttingBoardBlock;
 import io.github.likexiang21.tfcplus.agriculture.common.block.MortarBlock;
@@ -10,6 +20,7 @@ import io.github.likexiang21.tfcplus.agriculture.common.block.DryingRackBlock;
 import io.github.likexiang21.tfcplus.agriculture.common.block.KitchenStorageBlock;
 import io.github.likexiang21.tfcplus.agriculture.common.block.PlaceableFoodBlock;
 import io.github.likexiang21.tfcplus.agriculture.common.block.SilkwormRackBlock;
+import io.github.likexiang21.tfcplus.agriculture.common.block.TfcFarmlandCropBlock;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.CuttingBoardBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.KnifeRackBlockEntity;
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.MortarBlockEntity;
@@ -21,6 +32,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -164,6 +176,29 @@ public final class AgricultureBlocks {
     public static final DeferredHolder<Block, Block> JELLY_BLOCK;
     public static final DeferredHolder<Block, Block> SUGAR_BLOCK;
 
+    /** P0-D natural/wild mushrooms; all 15 have a wild block, four are natural-only. */
+    public static final Map<String, DeferredHolder<Block, ? extends Block>> WILD_MUSHROOMS = new LinkedHashMap<>();
+
+    /** P0-E cultivation bag for the 11 cultivable mushroom species. */
+    public static final DeferredHolder<Block, Block> MUSHROOM_BAG;
+
+    /** P0-M one-seed nursery tray. */
+    public static final DeferredHolder<Block, Block> NURSERY_TRAY;
+
+    /** P0-Y trellis required by the two vine spice crops. */
+    public static final DeferredHolder<Block, Block> SPICE_TRELLIS;
+
+    /** P0-AL strawberry is the A 87th ordinary-crop record, provided as a B crop block. */
+    public static final DeferredHolder<Block, Block> STRAWBERRY_CROP;
+
+    /** P0-AP pistachio/cashew dedicated nut trees. */
+    public static final Map<String, DeferredHolder<Block, Block>> NUT_LEAVES = new LinkedHashMap<>();
+    public static final Map<String, DeferredHolder<Block, Block>> NUT_SAPLINGS = new LinkedHashMap<>();
+
+    /** P0-AS tree-form spices. */
+    public static final Map<String, DeferredHolder<Block, Block>> SPICE_TREE_LEAVES = new LinkedHashMap<>();
+    public static final Map<String, DeferredHolder<Block, Block>> SPICE_TREE_SAPLINGS = new LinkedHashMap<>();
+
     static {
         // ---- 木制案板（34） ----
         for (final String wood : TFC_WOODS) {
@@ -270,6 +305,104 @@ public final class AgricultureBlocks {
                 .strength(0.5F).sound(SoundType.STONE).noOcclusion()));
         AgricultureItems.ITEMS.registerSimpleBlockItem("sugar_block", SUGAR_BLOCK);
         ALL.put("sugar_block", SUGAR_BLOCK);
+
+        // P0-D: 15 wild mushroom blocks; four species are natural-only, the rest are future
+        // bag candidates. All are wild here and use the same random-tick mushroom block.
+        for (final MushroomSpecies species : MushroomSpecies.values()) {
+            registerVariant(WILD_MUSHROOMS, species.blockPath(),
+                () -> new WildMushroomBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BROWN)
+                    .strength(0.1F)
+                    .sound(SoundType.GRASS)
+                    .noCollission()
+                    .noOcclusion()
+                    .randomTicks()));
+        }
+
+        MUSHROOM_BAG = BLOCKS.register("mushroom_bag", () -> new MushroomBagBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.COLOR_BROWN)
+                .strength(0.5F)
+                .sound(SoundType.GRASS)
+                .noOcclusion()));
+        AgricultureItems.ITEMS.registerSimpleBlockItem("mushroom_bag", MUSHROOM_BAG);
+        ALL.put("mushroom_bag", MUSHROOM_BAG);
+
+        NURSERY_TRAY = BLOCKS.register("nursery_tray", () -> new NurseryTrayBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.WOOD)
+                .strength(0.5F)
+                .sound(SoundType.WOOD)
+                .noOcclusion()));
+        AgricultureItems.ITEMS.registerSimpleBlockItem("nursery_tray", NURSERY_TRAY);
+        ALL.put("nursery_tray", NURSERY_TRAY);
+
+        SPICE_TRELLIS = BLOCKS.register("spice_trellis", () -> new Block(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.WOOD)
+                .strength(0.4F)
+                .sound(SoundType.WOOD)
+                .noOcclusion()));
+        AgricultureItems.ITEMS.registerSimpleBlockItem("spice_trellis", SPICE_TRELLIS);
+        ALL.put("spice_trellis", SPICE_TRELLIS);
+
+        STRAWBERRY_CROP = BLOCKS.register("crop/strawberry", () -> new TfcFarmlandCropBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.PLANT)
+                .noCollission()
+                .randomTicks()
+                .instabreak()
+                .sound(SoundType.CROP)));
+        AgricultureItems.ITEMS.registerSimpleBlockItem("seeds/strawberry", STRAWBERRY_CROP);
+        ALL.put("crop/strawberry", STRAWBERRY_CROP);
+
+        for (final NutTreeSpecies species : NutTreeSpecies.values()) {
+            final DeferredHolder<Block, Block> leaves = BLOCKS.register(species.leafPath(),
+                () -> new NutLeavesBlock(species, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .strength(0.2F)
+                    .randomTicks()
+                    .noOcclusion()
+                    .isViewBlocking((state, level, pos) -> false)
+                    .sound(SoundType.GRASS)));
+            NUT_LEAVES.put(species.id(), leaves);
+            ALL.put(species.leafPath(), leaves);
+
+            final DeferredHolder<Block, Block> sapling = BLOCKS.register(species.saplingPath(),
+                () -> new NutTreeSaplingBlock(species, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.GRASS)));
+            NUT_SAPLINGS.put(species.id(), sapling);
+            AgricultureItems.ITEMS.registerSimpleBlockItem(species.saplingPath(), sapling);
+            ALL.put(species.saplingPath(), sapling);
+        }
+
+        for (final SpiceTreeSpecies species : SpiceTreeSpecies.values()) {
+            final DeferredHolder<Block, Block> leaves = BLOCKS.register(species.leafPath(),
+                () -> new SpiceTreeLeavesBlock(species, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .strength(0.2F)
+                    .randomTicks()
+                    .noOcclusion()
+                    .isViewBlocking((state, level, pos) -> false)
+                    .sound(SoundType.GRASS)));
+            SPICE_TREE_LEAVES.put(species.id(), leaves);
+            ALL.put(species.leafPath(), leaves);
+
+            final DeferredHolder<Block, Block> sapling = BLOCKS.register(species.saplingPath(),
+                () -> new SpiceTreeSaplingBlock(species, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.GRASS)));
+            SPICE_TREE_SAPLINGS.put(species.id(), sapling);
+            AgricultureItems.ITEMS.registerSimpleBlockItem(species.saplingPath(), sapling);
+            ALL.put(species.saplingPath(), sapling);
+        }
     }
 
     // ==================================================================
@@ -342,14 +475,14 @@ public final class AgricultureBlocks {
             return;
         }
         if (blockEntity instanceof io.github.likexiang21.tfcplus.agriculture.common.blockentity.KnifeRackBlockEntity knifeRack) {
-            final net.minecraft.world.item.ItemStack stack = knifeRack.takeLast();
-            while (!stack.isEmpty()) {
-                net.minecraft.world.Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
-                final net.minecraft.world.item.ItemStack next = knifeRack.takeLast();
-                if (next.isEmpty()) {
+            // Containers.dropItemStack mutates/splits its argument, so always take the next
+            // stack from the rack inside the loop instead of looping on the first stack.
+            while (true) {
+                final net.minecraft.world.item.ItemStack stack = knifeRack.takeLast();
+                if (stack.isEmpty()) {
                     break;
                 }
-                net.minecraft.world.Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, next);
+                net.minecraft.world.Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
             }
         } else if (blockEntity instanceof io.github.likexiang21.tfcplus.agriculture.common.blockentity.CuttingBoardBlockEntity cuttingBoard) {
             final net.minecraft.world.item.ItemStack stack = cuttingBoard.takeFromBoard();
@@ -395,7 +528,8 @@ public final class AgricultureBlocks {
     /** 全部方块（供渲染层自检 / 创造页）。 */
     public static List<DeferredHolder<Block, ? extends Block>> all() {
         var result = new ArrayList<>(ALL.values());
-        result.addAll(DRYING_RACKS.values());
+        // DRYING_RACKS was already inserted into ALL by registerVariant; only TimberBlocks
+        // lives in a separate registry. Appending DRYING_RACKS again duplicated every rack.
         result.addAll(io.github.likexiang21.tfcplus.agriculture.common.timber.TimberBlocks.ALL.values());
         return result;
     }
@@ -403,7 +537,6 @@ public final class AgricultureBlocks {
     /** 全部方块的注册 ID（不含命名空间），供渲染层自检与台账。 */
     public static List<String> allIds() {
         var result = new ArrayList<>(ALL.keySet());
-        result.addAll(DRYING_RACKS.keySet());
         result.addAll(io.github.likexiang21.tfcplus.agriculture.common.timber.TimberBlocks.ALL.keySet());
         return result;
     }

@@ -1,0 +1,22 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#tfcagricultureplus:wild_mushroom_biomes",
+  "features": [
+    "tfcagricultureplus:wild_mushroom_oyster",
+    "tfcagricultureplus:wild_mushroom_shiitake",
+    "tfcagricultureplus:wild_mushroom_button",
+    "tfcagricultureplus:wild_mushroom_enoki",
+    "tfcagricultureplus:wild_mushroom_wood_ear",
+    "tfcagricultureplus:wild_mushroom_reishi",
+    "tfcagricultureplus:wild_mushroom_lions_mane",
+    "tfcagricultureplus:wild_mushroom_maitake",
+    "tfcagricultureplus:wild_mushroom_king_oyster",
+    "tfcagricultureplus:wild_mushroom_shimeji",
+    "tfcagricultureplus:wild_mushroom_turkey_tail",
+    "tfcagricultureplus:wild_mushroom_porcini",
+    "tfcagricultureplus:wild_mushroom_morel",
+    "tfcagricultureplus:wild_mushroom_chanterelle",
+    "tfcagricultureplus:wild_mushroom_black_truffle"
+  ],
+  "step": "vegetal_decoration"
+}

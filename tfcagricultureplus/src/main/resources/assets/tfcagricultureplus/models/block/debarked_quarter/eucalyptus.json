@@ -1,9 +1,9 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_quarter",
   "textures": {
-    "side": "afc:block/wood/stripped_log/eucalyptus",
-    "top": "afc:block/wood/stripped_log_top/eucalyptus",
-    "inner": "afc:block/wood/stripped_log/eucalyptus",
-    "particle": "afc:block/wood/stripped_log/eucalyptus"
+    "side": "afc:block/wood/sheet/eucalyptus",
+    "top": "afc:block/wood/log_top/eucalyptus",
+    "inner": "afc:block/wood/sheet/eucalyptus",
+    "particle": "afc:block/wood/sheet/eucalyptus"
   }
 }

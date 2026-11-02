@@ -1,21 +1,20 @@
 package io.github.likexiang21.tfcplus.agriculture.common.pan;
 
 import io.github.likexiang21.tfcplus.agriculture.common.blockentity.ServingPlateBlockEntity;
-import io.github.likexiang21.tfcplus.agriculture.common.item.ServingBowlItem;
 import net.dries007.tfc.common.component.food.FoodCapability;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-/** Shared serving logic for plates and bowls. */
+/** Shared serving logic for plates. */
 public final class DishEating {
     public static boolean eatFromPlateBlock(Player player, ServingPlateBlockEntity plate) {
         if (!(player instanceof ServerPlayer)) return true;
         final ItemStack stack = plate.plateStack();
         final PanDishData dish = PanDishData.read(stack);
         if (dish == null || FoodCapability.isRotten(stack)) return false;
+        if (player.getAbilities().instabuild) return true;
         consumeOne(player, stack);
         if (dish.servings() <= 1) {
             plate.clearPlate();
@@ -32,41 +31,33 @@ public final class DishEating {
     public static ItemStack finishItemUse(Player player, ItemStack stack) {
         final PanDishData dish = PanDishData.read(stack);
         if (dish == null || FoodCapability.isRotten(stack)) return stack;
+        if (player.getAbilities().instabuild) return stack;
         consumeOne(player, stack);
-        if (dish.servings() <= 1) {
-            PanDishData.clear(stack);
-            stack.setCount(1);
+        final PanDishData rest = dish.servings() <= 1 ? null
+            : new PanDishData(dish.servings() - 1, dish.score(), dish.food(),
+                dish.category(), dish.oil(), dish.ingredients());
+
+        // A stack can hold several filled plates. Split one plate off instead of
+        // mutating the whole stack (the old setCount(1) deleted every other plate).
+        if (stack.getCount() > 1) {
+            final ItemStack single = stack.copyWithCount(1);
+            stack.shrink(1);
+            if (rest == null) {
+                PanDishData.clear(single);
+            } else {
+                PanDishData.write(single, rest);
+            }
+            if (!player.getInventory().add(single)) player.drop(single, false);
             return stack;
         }
-        final PanDishData rest = new PanDishData(dish.servings() - 1, dish.score(), dish.food(),
-            dish.category(), dish.oil(), dish.ingredients());
-        PanDishData.write(stack, rest);
+
+        if (rest == null) {
+            PanDishData.clear(stack);
+        } else {
+            PanDishData.write(stack, rest);
+        }
         stack.setCount(1);
         return stack;
-    }
-
-    public static boolean transferToBowl(Player player, ServingPlateBlockEntity plate, InteractionHand hand) {
-        if (!(player instanceof ServerPlayer)) return true;
-        final ItemStack held = player.getItemInHand(hand);
-        if (!(held.getItem() instanceof ServingBowlItem)) return false;
-        final ItemStack food = plate.plateStack();
-        final PanDishData dish = PanDishData.read(food);
-        if (dish == null || FoodCapability.isRotten(food)) return false;
-        final PanDishData one = new PanDishData(1, dish.score(), dish.food(), dish.category(), dish.oil(), dish.ingredients());
-        final ItemStack bowl = held.copyWithCount(1);
-        PanDishData.write(bowl, one);
-        if (!player.getInventory().add(bowl)) player.drop(bowl, false);
-        if (!player.isCreative()) held.shrink(1);
-        if (dish.servings() <= 1) {
-            plate.clearPlate();
-        } else {
-            final PanDishData rest = new PanDishData(dish.servings() - 1, dish.score(), dish.food(),
-                dish.category(), dish.oil(), dish.ingredients());
-            final ItemStack restStack = food.copyWithCount(1);
-            PanDishData.write(restStack, rest);
-            plate.setPlateStack(restStack);
-        }
-        return true;
     }
 
     private static void consumeOne(Player player, ItemStack stack) {

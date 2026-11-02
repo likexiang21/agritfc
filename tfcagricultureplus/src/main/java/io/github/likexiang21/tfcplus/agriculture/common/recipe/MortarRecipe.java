@@ -46,6 +46,12 @@ public record MortarRecipe(Ingredient ingredient, ItemStack result, int grindTim
     /** 默认研磨敲击次数。 */
     public static final int DEFAULT_GRIND_TIME = 4;
 
+    /** Mortar recipes are processed in-world, never in the vanilla recipe book. */
+    @Override
+    public boolean isSpecial() {
+        return true;
+    }
+
     @Override
     public boolean matches(SingleRecipeInput input, Level level) {
         return !FoodCapability.isRotten(input.item()) && ingredient.test(input.item());

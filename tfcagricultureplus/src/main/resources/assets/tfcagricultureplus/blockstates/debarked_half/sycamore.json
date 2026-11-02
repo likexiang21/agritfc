@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_half/sycamore",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_half/sycamore"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_half/sycamore",

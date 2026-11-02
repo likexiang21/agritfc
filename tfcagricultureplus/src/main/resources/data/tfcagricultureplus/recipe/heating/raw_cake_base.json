@@ -1,0 +1,19 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "type": "tfc:and",
+    "children": [
+      {
+        "item": "tfcagricultureplus:food/raw_cake_base"
+      },
+      {
+        "type": "tfc:not_rotten"
+      }
+    ]
+  },
+  "result_item": {
+    "count": 1,
+    "id": "tfcagricultureplus:food/cake_base"
+  },
+  "temperature": 400.0
+}

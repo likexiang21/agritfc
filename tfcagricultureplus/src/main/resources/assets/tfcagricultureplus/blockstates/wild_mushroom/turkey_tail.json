@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "tfcagricultureplus:block/wild_mushroom/age_0"
+    },
+    "age=1": {
+      "model": "tfcagricultureplus:block/wild_mushroom/age_1"
+    },
+    "age=2": {
+      "model": "tfcagricultureplus:block/wild_mushroom/age_2"
+    }
+  }
+}

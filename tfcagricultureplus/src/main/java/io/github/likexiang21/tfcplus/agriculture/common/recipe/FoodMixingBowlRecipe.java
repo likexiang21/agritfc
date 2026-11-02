@@ -59,6 +59,11 @@ public final class FoodMixingBowlRecipe extends MixingBowlRecipe {
     }
 
     @Override
+    public boolean isSpecial() {
+        return true;
+    }
+
+    @Override
     public RecipeSerializer<?> getSerializer() {
         return AgricultureRecipeSerializers.FOOD_MIXING_BOWL.get();
     }

@@ -1,0 +1,32 @@
+{
+  "type": "tfc:advanced_shapeless_crafting",
+  "ingredients": [
+    {
+      "item": "tfcagricultureplus:grain_bundle/foxtail_millet"
+    },
+    {
+      "tag": "c:tools/knife"
+    }
+  ],
+  "primary_ingredient": {
+    "tag": "c:tools/knife"
+  },
+  "remainder": {
+    "modifiers": [
+      {
+        "type": "tfc:damage_crafting_remainder"
+      },
+      {
+        "type": "tfc:extra_products",
+        "stack": {
+          "count": 1,
+          "id": "tfcagricultureplus:wet_grass"
+        }
+      }
+    ]
+  },
+  "result": {
+    "id": "tfcfarmingplus:food/foxtail_millet",
+    "count": 1
+  }
+}

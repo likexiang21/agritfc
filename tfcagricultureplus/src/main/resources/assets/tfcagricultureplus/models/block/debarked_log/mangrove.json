@@ -1,9 +1,8 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_log",
   "textures": {
-    "side": "tfc:block/wood/stripped_log/mangrove",
-    "top": "tfc:block/wood/stripped_log_top/mangrove",
-    "inner": "tfc:block/wood/stripped_log/mangrove",
-    "particle": "tfc:block/wood/stripped_log/mangrove"
+    "side": "tfc:block/wood/sheet/mangrove",
+    "top": "tfc:block/wood/log_top/mangrove",
+    "particle": "tfc:block/wood/sheet/mangrove"
   }
 }

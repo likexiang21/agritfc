@@ -1,0 +1,28 @@
+{
+  "name": "TFC berry bushes",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:bush_waste/blackberry",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Ten TFC bushes",
+      "text": "B handles ten TFC berry bushes: blackberry, blueberry, bunchberry, cloudberry, cranberry, elderberry, gooseberry, raspberry, snowberry and wintergreen."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Harvest",
+      "text": "Breaking a mature TFC bush is intercepted; the bush is harvested and left in its picked state instead of being removed. Empty-hand right-click harvesting is also handled."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Waste",
+      "text": "Each bush yields its own bush waste item. These ten waste items are distinct from the 102 crop/spice waste items."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:bush_waste/blackberry",
+      "title": "Bush waste",
+      "text": "Ten TFC bushes produce their own waste; the bush is left in its picked state."
+    }
+  ]
+}

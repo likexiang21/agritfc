@@ -1,1 +1,11 @@
-{"type":"tfcagricultureplus:mortar","ingredient":{"item":"tfcfarmingplus:food/black_pepper"},"result":{"id":"tfcagricultureplus:food/ground_black_pepper","count":1},"grind_time":3}
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/black_pepper"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/black_pepper",
+    "count": 1
+  },
+  "grind_time": 4
+}

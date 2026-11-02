@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:acorn"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_nut/acorn",
+    "count": 1
+  },
+  "grind_time": 4
+}

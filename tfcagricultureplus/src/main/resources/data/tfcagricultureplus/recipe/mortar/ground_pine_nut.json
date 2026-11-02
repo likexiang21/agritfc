@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:pine_nut"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_nut/pine_nut",
+    "count": 1
+  },
+  "grind_time": 4
+}

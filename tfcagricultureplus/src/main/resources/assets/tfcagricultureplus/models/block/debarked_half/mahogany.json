@@ -1,9 +1,9 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_half",
   "textures": {
-    "side": "afc:block/wood/stripped_log/mahogany",
-    "top": "afc:block/wood/stripped_log_top/mahogany",
-    "inner": "afc:block/wood/stripped_log/mahogany",
-    "particle": "afc:block/wood/stripped_log/mahogany"
+    "side": "afc:block/wood/sheet/mahogany",
+    "top": "afc:block/wood/log_top/mahogany",
+    "inner": "afc:block/wood/sheet/mahogany",
+    "particle": "afc:block/wood/sheet/mahogany"
   }
 }

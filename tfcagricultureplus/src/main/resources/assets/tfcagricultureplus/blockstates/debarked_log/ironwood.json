@@ -1,20 +1,7 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_log/ironwood",
-      "y": 0
-    },
-    "facing=east": {
-      "model": "tfcagricultureplus:block/debarked_log/ironwood",
-      "y": 90
-    },
-    "facing=south": {
-      "model": "tfcagricultureplus:block/debarked_log/ironwood",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "tfcagricultureplus:block/debarked_log/ironwood",
-      "y": 270
+    "": {
+      "model": "tfcagricultureplus:block/debarked_log/ironwood"
     }
   }
 }

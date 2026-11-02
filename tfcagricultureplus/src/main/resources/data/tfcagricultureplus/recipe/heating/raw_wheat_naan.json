@@ -1,0 +1,19 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "type": "tfc:and",
+    "children": [
+      {
+        "item": "tfcagricultureplus:food/raw_wheat_naan"
+      },
+      {
+        "type": "tfc:not_rotten"
+      }
+    ]
+  },
+  "result_item": {
+    "count": 1,
+    "id": "tfcagricultureplus:food/wheat_naan"
+  },
+  "temperature": 400.0
+}

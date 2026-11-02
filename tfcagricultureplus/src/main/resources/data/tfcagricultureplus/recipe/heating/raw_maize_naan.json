@@ -1,0 +1,19 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "type": "tfc:and",
+    "children": [
+      {
+        "item": "tfcagricultureplus:food/raw_maize_naan"
+      },
+      {
+        "type": "tfc:not_rotten"
+      }
+    ]
+  },
+  "result_item": {
+    "count": 1,
+    "id": "tfcagricultureplus:food/maize_naan"
+  },
+  "temperature": 400.0
+}

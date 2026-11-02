@@ -1,1 +1,58 @@
-{"variants":{"wood":{"model":"tfcagricultureplus:block/plate/wood"},"ceramic":{"model":"tfcagricultureplus:block/plate/ceramic"},"ceramic_white":{"model":"tfcagricultureplus:block/plate/ceramic_white"},"ceramic_orange":{"model":"tfcagricultureplus:block/plate/ceramic_orange"},"ceramic_magenta":{"model":"tfcagricultureplus:block/plate/ceramic_magenta"},"ceramic_light_blue":{"model":"tfcagricultureplus:block/plate/ceramic_light_blue"},"ceramic_yellow":{"model":"tfcagricultureplus:block/plate/ceramic_yellow"},"ceramic_lime":{"model":"tfcagricultureplus:block/plate/ceramic_lime"},"ceramic_pink":{"model":"tfcagricultureplus:block/plate/ceramic_pink"},"ceramic_gray":{"model":"tfcagricultureplus:block/plate/ceramic_gray"},"ceramic_light_gray":{"model":"tfcagricultureplus:block/plate/ceramic_light_gray"},"ceramic_cyan":{"model":"tfcagricultureplus:block/plate/ceramic_cyan"},"ceramic_purple":{"model":"tfcagricultureplus:block/plate/ceramic_purple"},"ceramic_blue":{"model":"tfcagricultureplus:block/plate/ceramic_blue"},"ceramic_brown":{"model":"tfcagricultureplus:block/plate/ceramic_brown"},"ceramic_green":{"model":"tfcagricultureplus:block/plate/ceramic_green"},"ceramic_red":{"model":"tfcagricultureplus:block/plate/ceramic_red"},"ceramic_black":{"model":"tfcagricultureplus:block/plate/ceramic_black"}}}
+{
+  "variants": {
+    "variant=wood": {
+      "model": "tfcagricultureplus:block/plate/wood"
+    },
+    "variant=ceramic": {
+      "model": "tfcagricultureplus:block/plate/ceramic"
+    },
+    "variant=ceramic_white": {
+      "model": "tfcagricultureplus:block/plate/ceramic_white"
+    },
+    "variant=ceramic_orange": {
+      "model": "tfcagricultureplus:block/plate/ceramic_orange"
+    },
+    "variant=ceramic_magenta": {
+      "model": "tfcagricultureplus:block/plate/ceramic_magenta"
+    },
+    "variant=ceramic_light_blue": {
+      "model": "tfcagricultureplus:block/plate/ceramic_light_blue"
+    },
+    "variant=ceramic_yellow": {
+      "model": "tfcagricultureplus:block/plate/ceramic_yellow"
+    },
+    "variant=ceramic_lime": {
+      "model": "tfcagricultureplus:block/plate/ceramic_lime"
+    },
+    "variant=ceramic_pink": {
+      "model": "tfcagricultureplus:block/plate/ceramic_pink"
+    },
+    "variant=ceramic_gray": {
+      "model": "tfcagricultureplus:block/plate/ceramic_gray"
+    },
+    "variant=ceramic_light_gray": {
+      "model": "tfcagricultureplus:block/plate/ceramic_light_gray"
+    },
+    "variant=ceramic_cyan": {
+      "model": "tfcagricultureplus:block/plate/ceramic_cyan"
+    },
+    "variant=ceramic_purple": {
+      "model": "tfcagricultureplus:block/plate/ceramic_purple"
+    },
+    "variant=ceramic_blue": {
+      "model": "tfcagricultureplus:block/plate/ceramic_blue"
+    },
+    "variant=ceramic_brown": {
+      "model": "tfcagricultureplus:block/plate/ceramic_brown"
+    },
+    "variant=ceramic_green": {
+      "model": "tfcagricultureplus:block/plate/ceramic_green"
+    },
+    "variant=ceramic_red": {
+      "model": "tfcagricultureplus:block/plate/ceramic_red"
+    },
+    "variant=ceramic_black": {
+      "model": "tfcagricultureplus:block/plate/ceramic_black"
+    }
+  }
+}

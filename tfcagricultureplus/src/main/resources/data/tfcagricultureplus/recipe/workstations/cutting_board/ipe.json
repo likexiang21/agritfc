@@ -1,0 +1,34 @@
+{
+  "type": "tfc:advanced_shapeless_crafting",
+  "ingredients": [
+    {
+      "tag": "c:tools/saw"
+    },
+    {
+      "item": "afc:wood/lumber/ipe"
+    },
+    {
+      "item": "afc:wood/lumber/ipe"
+    },
+    {
+      "item": "afc:wood/lumber/ipe"
+    },
+    {
+      "item": "afc:wood/lumber/ipe"
+    }
+  ],
+  "primary_ingredient": {
+    "tag": "c:tools/saw"
+  },
+  "remainder": {
+    "modifiers": [
+      {
+        "type": "tfc:damage_crafting_remainder"
+      }
+    ]
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:cutting_board/ipe"
+  }
+}

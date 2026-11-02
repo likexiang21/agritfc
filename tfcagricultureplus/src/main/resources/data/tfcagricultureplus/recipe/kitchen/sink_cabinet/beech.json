@@ -1,17 +1,21 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/beech"
+    "L": {
+      "item": "afc:wood/lumber/beech"
+    },
+    "M": {
+      "item": "tfc:metal/sheet/wrought_iron"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:sink_cabinet/beech",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "P P",
-    "PPP"
+    "LLL",
+    "LML",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:sink_cabinet/beech"
+  }
 }

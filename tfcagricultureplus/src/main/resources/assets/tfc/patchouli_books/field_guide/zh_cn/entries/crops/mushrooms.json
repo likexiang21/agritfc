@@ -1,0 +1,39 @@
+{
+  "name": "野生蘑菇与菌包",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:mushroom_bag",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "十五种",
+      "text": "B 新增 15 种野生蘑菇。其中 11 种可用菌包栽培；4 种为仅自然生成，菌包会拒绝。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "野生生长",
+      "text": "野生蘑菇有三个可见龄期，并可向附近兼容土壤扩散。需要泥土、草方块或其它支持的基质。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "菌包",
+      "text": "菌包有四个可见阶段。只有处于该物种温度耐受范围内才会生长；过冷或过热都会停止。菌包有有限使用次数，耗尽后失效。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "仅自然生成",
+      "text": "仅自然生成的物种在物种表中有标记。用菌包尝试栽培会被拒绝并提示；它们不能人工栽培。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:mushroom_bag",
+      "title": "菌包",
+      "text": "只有 11 种可栽培蘑菇能在菌包中生长。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:wild_mushroom/oyster",
+      "title": "野生蘑菇",
+      "text": "野生种在兼容土壤生长/扩散；仅自然生成种会拒绝菌包。"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "坚果树与叶状态",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:pistachio",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "三种 B 坚果",
+      "text": "B 新增开心果、腰果、夏威夷果。每种都有树苗、树叶、坚果与果壳。TFC/AFC 已有坚果树叶也会获得 B 的坚果叶状态。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "叶状态",
+      "text": "树叶使用四个 nut_state 值：$(br2)$(li)0 = 无；$(li)1 = 花；$(li)2 = 青；$(li)3 = 成熟。$(br2)春季进入花，夏季青，秋季成熟，冬季清空。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "成熟掉落",
+      "text": "成熟树叶偶尔掉落 1 个坚果与 1 个果壳。掉落只在成熟状态发生，具有季节性。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:pistachio",
+      "title": "坚果",
+      "text": "成熟树叶按季节掉落坚果与果壳。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:nut_sapling/pistachio",
+      "title": "坚果幼苗",
+      "text": "种下幼苗长成树；树叶带 nut_state。"
+    }
+  ]
+}

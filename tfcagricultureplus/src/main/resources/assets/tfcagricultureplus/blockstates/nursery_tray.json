@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "tfcagricultureplus:block/nursery_tray"
+    },
+    "stage=1": {
+      "model": "tfcagricultureplus:block/nursery_tray_stage_1"
+    },
+    "stage=2": {
+      "model": "tfcagricultureplus:block/nursery_tray_stage_2"
+    }
+  }
+}

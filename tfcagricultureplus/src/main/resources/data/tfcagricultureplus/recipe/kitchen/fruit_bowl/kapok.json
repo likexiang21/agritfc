@@ -1,17 +1,17 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "tfc:wood/planks/kapok"
+    "L": {
+      "item": "tfc:wood/lumber/kapok"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:fruit_bowl/kapok",
-    "count": 1
-  },
   "pattern": [
-    " P ",
-    "PPP",
-    "P P"
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:fruit_bowl/kapok"
+  }
 }

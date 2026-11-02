@@ -1,9 +1,9 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_log",
   "textures": {
-    "side": "afc:block/wood/stripped_log/mahoe",
-    "top": "afc:block/wood/stripped_log_top/mahoe",
-    "inner": "afc:block/wood/stripped_log/mahoe",
-    "particle": "afc:block/wood/stripped_log/mahoe"
+    "side": "afc:block/wood/sheet/mahoe",
+    "top": "afc:block/wood/log_top/mahoe",
+    "inner": "afc:block/wood/sheet/mahoe",
+    "particle": "afc:block/wood/sheet/mahoe"
   }
 }

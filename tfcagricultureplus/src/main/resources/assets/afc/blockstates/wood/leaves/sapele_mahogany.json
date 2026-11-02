@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "variants": {
+    "nut_state=0": {
+      "model": "afc:block/wood/leaves/sapele_mahogany_dynamic"
+    },
+    "nut_state=1": {
+      "model": "afc:block/wood/leaves/sapele_mahogany_dynamic"
+    },
+    "nut_state=2": {
+      "model": "afc:block/wood/leaves/sapele_mahogany_dynamic"
+    },
+    "nut_state=3": {
+      "model": "afc:block/wood/leaves/sapele_mahogany_dynamic"
+    }
+  }
+}

@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_half/mahogany",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_half/mahogany"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_half/mahogany",

@@ -1,0 +1,10 @@
+{
+  "type": "firmalife:drying",
+  "ingredient": {
+    "item": "tfcagricultureplus:wet_grass"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc:straw"
+  }
+}

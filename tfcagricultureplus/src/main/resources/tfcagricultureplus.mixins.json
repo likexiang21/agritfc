@@ -3,6 +3,6 @@
   "minVersion": "0.8",
   "package": "io.github.likexiang21.tfcplus.agriculture.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["OvenTopBlockEntityMixin"],
+  "mixins": ["OvenTopBlockEntityMixin", "TFCLeavesNutStateMixin"],
   "injectors": {"defaultRequire": 1}
 }

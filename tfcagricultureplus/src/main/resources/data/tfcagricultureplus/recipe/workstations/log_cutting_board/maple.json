@@ -1,0 +1,25 @@
+{
+  "type": "tfc:advanced_shapeless_crafting",
+  "ingredients": [
+    {
+      "tag": "minecraft:axes"
+    },
+    {
+      "item": "tfc:wood/log/maple"
+    }
+  ],
+  "primary_ingredient": {
+    "tag": "minecraft:axes"
+  },
+  "remainder": {
+    "modifiers": [
+      {
+        "type": "tfc:damage_crafting_remainder"
+      }
+    ]
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:log_cutting_board/maple"
+  }
+}

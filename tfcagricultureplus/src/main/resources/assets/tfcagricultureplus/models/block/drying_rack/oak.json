@@ -1,1 +1,6 @@
-{"parent":"minecraft:block/cube_all","textures":{"all":"tfc:block/wood/planks/oak"}}
+{
+  "parent": "tfcagricultureplus:block/drying_rack",
+  "textures": {
+    "wood": "tfc:block/wood/planks/oak"
+  }
+}

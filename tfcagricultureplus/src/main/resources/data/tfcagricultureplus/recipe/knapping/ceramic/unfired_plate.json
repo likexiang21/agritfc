@@ -2,11 +2,11 @@
   "type": "tfc:knapping",
   "knapping_type": "tfc:clay",
   "pattern": [
-    "#   #",
+    " ### ",
+    "#####",
     " ### ",
     "     ",
-    "#   #",
-    " ### "
+    "     "
   ],
   "result": {
     "count": 1,

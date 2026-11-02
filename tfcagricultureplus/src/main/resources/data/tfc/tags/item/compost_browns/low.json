@@ -1,4 +1,16 @@
 {
-  "replace": false,
-  "values": ["tfcagricultureplus:sawdust"]
+  "values": [
+    "#minecraft:leaves",
+    "tfc:plant/hanging_vines",
+    "tfc:plant/spanish_moss",
+    "tfc:plant/liana",
+    "tfc:plant/flame_vine",
+    "tfc:plant/tree_fern",
+    "tfc:plant/cycad",
+    "tfc:plant/arundo",
+    "tfc:plant/dry_phragmite",
+    "tfc:plant/jungle_vines",
+    "minecraft:hanging_roots",
+    "tfc:canola"
+  ]
 }

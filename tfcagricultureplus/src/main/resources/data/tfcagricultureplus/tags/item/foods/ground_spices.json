@@ -3,6 +3,26 @@
   "values": [
     "tfcagricultureplus:food/ground_ginger",
     "tfcagricultureplus:food/ground_turmeric",
-    "tfcagricultureplus:food/ground_black_pepper"
+    "tfcagricultureplus:food/ground_black_pepper",
+    "tfcagricultureplus:ground_spice/basil",
+    "tfcagricultureplus:ground_spice/bay_laurel",
+    "tfcagricultureplus:ground_spice/black_pepper",
+    "tfcagricultureplus:ground_spice/cardamom",
+    "tfcagricultureplus:ground_spice/cilantro",
+    "tfcagricultureplus:ground_spice/cinnamon",
+    "tfcagricultureplus:ground_spice/clove",
+    "tfcagricultureplus:ground_spice/cumin",
+    "tfcagricultureplus:ground_spice/dill",
+    "tfcagricultureplus:ground_spice/fennel",
+    "tfcagricultureplus:ground_spice/mustard",
+    "tfcagricultureplus:ground_spice/nutmeg",
+    "tfcagricultureplus:ground_spice/oregano",
+    "tfcagricultureplus:ground_spice/pimento",
+    "tfcagricultureplus:ground_spice/rosemary",
+    "tfcagricultureplus:ground_spice/saffron",
+    "tfcagricultureplus:ground_spice/sage",
+    "tfcagricultureplus:ground_spice/star_anise",
+    "tfcagricultureplus:ground_spice/thyme",
+    "tfcagricultureplus:ground_spice/vanilla"
   ]
 }

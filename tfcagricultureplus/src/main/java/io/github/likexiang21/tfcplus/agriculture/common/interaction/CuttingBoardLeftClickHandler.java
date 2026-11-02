@@ -11,6 +11,7 @@ public final class CuttingBoardLeftClickHandler {
 
     @net.neoforged.bus.api.SubscribeEvent
     public static void onLeftClick(PlayerInteractEvent.LeftClickBlock event) {
+        if (event.isCanceled()) return;
         if (event.getHand() != net.minecraft.world.InteractionHand.MAIN_HAND) return;
         if (CuttingBoardInteractions.handleLeftClick(event.getLevel(), event.getPos(), event.getEntity())) {
             event.setCanceled(true);

@@ -1,9 +1,9 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_quarter",
   "textures": {
-    "side": "tfc:block/wood/stripped_log/sequoia",
-    "top": "tfc:block/wood/stripped_log_top/sequoia",
-    "inner": "tfc:block/wood/stripped_log/sequoia",
-    "particle": "tfc:block/wood/stripped_log/sequoia"
+    "side": "tfc:block/wood/sheet/sequoia",
+    "top": "tfc:block/wood/log_top/sequoia",
+    "inner": "tfcagricultureplus:block/log_inner/sequoia",
+    "particle": "tfc:block/wood/sheet/sequoia"
   }
 }

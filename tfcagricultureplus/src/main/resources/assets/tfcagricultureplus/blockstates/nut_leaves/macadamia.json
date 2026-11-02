@@ -1,0 +1,33 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "tfcagricultureplus:block/nut_leaves/macadamia"
+      }
+    },
+    {
+      "when": {
+        "nut_state": "1"
+      },
+      "apply": {
+        "model": "tfcagricultureplus:block/nut_leaves/macadamia_fruit_1"
+      }
+    },
+    {
+      "when": {
+        "nut_state": "2"
+      },
+      "apply": {
+        "model": "tfcagricultureplus:block/nut_leaves/macadamia_fruit_2"
+      }
+    },
+    {
+      "when": {
+        "nut_state": "3"
+      },
+      "apply": {
+        "model": "tfcagricultureplus:block/nut_leaves/macadamia_fruit_3"
+      }
+    }
+  ]
+}

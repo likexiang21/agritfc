@@ -1,0 +1,46 @@
+{
+  "feature": "tfcagricultureplus:nut_sapling_pistachio",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 120
+    },
+    {
+      "type": "tfc:climate",
+      "min_temperature": -15,
+      "max_temperature": 40,
+      "min_groundwater": 80,
+      "max_groundwater": 500
+    },
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 2
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "tfcagricultureplus:nut_sapling/pistachio",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -38,6 +38,7 @@ public final class InWorldRecipeHandler {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock interaction) {
+        if (interaction.isCanceled()) return;
         if (interaction.getHand() != InteractionHand.MAIN_HAND) return;
         Player player = interaction.getEntity();
         ItemStack held = player.getMainHandItem();

@@ -10,7 +10,7 @@ modId = "${modId}"
 version = "${modVersion}"
 displayName = "TFC Agriculture Plus"
 authors = "likexiang21"
-description = '''TFC Agriculture Plus - the food processing overhaul layer built on top of TFC Farming Plus. Adds cooking utensils, moulds, kitchen furniture, seasoning and 12 new food categories.'''
+description = '''TFC Agriculture Plus - a crop, spice, nut and mushroom production layer built on TerraFirmaCraft and TFC Farming Plus. Adds crop harvesting/replanting chains, seed treatment and nursery trays, wet grass and grain bundles, 82 crop-waste / 10 bush-waste items, 15 wild mushrooms with cultivation bags, 20 spice crops/trees, 3 nut trees and TFC/A/AFC nut-leaf states.'''
 
 [[dependencies.${modId}]]
     modId = "tfcfarmingplus"
@@ -36,7 +36,7 @@ description = '''TFC Agriculture Plus - the food processing overhaul layer built
 [[dependencies.${modId}]]
     modId = "afc"
     type = "required"
-    versionRange = "[2.1.3,)"
+    versionRange = "[2.1.2,)"
     ordering = "AFTER"
     side = "BOTH"
 

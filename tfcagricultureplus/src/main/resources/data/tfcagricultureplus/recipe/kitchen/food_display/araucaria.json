@@ -1,17 +1,21 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/araucaria"
+    "L": {
+      "item": "afc:wood/lumber/araucaria"
+    },
+    "G": {
+      "item": "minecraft:glass"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:food_display/araucaria",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "P P",
-    "PPP"
+    "LLL",
+    "LGL",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:food_display/araucaria"
+  }
 }

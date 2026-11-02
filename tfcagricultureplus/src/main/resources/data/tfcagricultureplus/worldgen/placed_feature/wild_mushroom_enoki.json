@@ -1,0 +1,34 @@
+{
+  "feature": "tfcagricultureplus:wild_mushroom_enoki",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 60
+    },
+    {
+      "type": "tfc:climate",
+      "min_temperature": -10,
+      "max_temperature": 35,
+      "min_groundwater": 100,
+      "max_groundwater": 500
+    },
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 2
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

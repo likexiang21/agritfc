@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/vanilla"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/vanilla",
+    "count": 1
+  },
+  "grind_time": 4
+}

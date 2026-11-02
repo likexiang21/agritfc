@@ -1,1 +1,8 @@
-{"parent":"item/generated","textures":{"layer0":"tfc:item/metal/sheet/black_steel"}}
+{
+  "loader": "tfc:fluid_container",
+  "parent": "neoforge:item/default",
+  "textures": {
+    "base": "tfc:item/metal/sheet/black_steel",
+    "fluid": "tfc:item/metal/bucket/overlay"
+  }
+}

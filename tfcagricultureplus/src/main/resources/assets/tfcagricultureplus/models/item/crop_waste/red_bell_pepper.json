@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfc:block/crop/red_bell_pepper_6"
+  }
+}

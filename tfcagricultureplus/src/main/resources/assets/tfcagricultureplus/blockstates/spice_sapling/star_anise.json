@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "tfcagricultureplus:block/spice_sapling/star_anise"
+    },
+    "stage=1": {
+      "model": "tfcagricultureplus:block/spice_sapling/star_anise"
+    },
+    "stage=2": {
+      "model": "tfcagricultureplus:block/spice_sapling/star_anise"
+    }
+  }
+}

@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_quarter/palm",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_quarter/palm"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_quarter/palm",

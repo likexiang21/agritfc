@@ -39,8 +39,16 @@ public final class PlaceableFoodBlockEntity extends InventoryBlockEntity<ItemSta
         // to a level that path dereferences a null level while the block is being placed.
     }
     private boolean isPie() { return getBlockState().is(AgricultureBlocks.WHOLE_PIE.get()); }
-    public void setPieFood(ItemStack source) {
-        if (level == null || level.isClientSide() || !isPie() || !source.is(AgricultureBlocks.WHOLE_PIE.get().asItem())) return;
+    public ItemStack displayStack() {
+        return pieFood;
+    }
+
+    /** Food-bearing stack for loot recovery; empty when the block has no dynamic food state. */
+    public ItemStack foodStack() {
+        return pieFood;
+    }
+
+    public void setPieFood(ItemStack source) {        if (level == null || level.isClientSide() || !isPie() || !source.is(AgricultureBlocks.WHOLE_PIE.get().asItem())) return;
         pieFood = source.copyWithCount(1);
         setChanged();
     }
@@ -69,7 +77,8 @@ public final class PlaceableFoodBlockEntity extends InventoryBlockEntity<ItemSta
     private boolean isButter() { return getBlockState().is(AgricultureBlocks.BUTTER_BLOCK.get()); }
     private boolean isJelly() { return getBlockState().is(AgricultureBlocks.JELLY_BLOCK.get()); }
     private boolean isSugar() { return getBlockState().is(AgricultureBlocks.SUGAR_BLOCK.get()); }
-    private int maxServings() { return isCreamCake() ? CREAM_CAKE_SERVINGS : isChocolateCake() ? CHOCOLATE_CAKE_SERVINGS : isCheese() ? CHEESE_SERVINGS : isButter() ? BUTTER_SERVINGS : isJelly() ? JELLY_SERVINGS : isSugar() ? SUGAR_SERVINGS : PIE_SERVINGS; }
+    public boolean isFull() { return servings >= maxServings(); }
+    public int maxServings() { return isCreamCake() ? CREAM_CAKE_SERVINGS : isChocolateCake() ? CHOCOLATE_CAKE_SERVINGS : isCheese() ? CHEESE_SERVINGS : isButter() ? BUTTER_SERVINGS : isJelly() ? JELLY_SERVINGS : isSugar() ? SUGAR_SERVINGS : PIE_SERVINGS; }
     private net.minecraft.world.item.Item servingItem() { return isCreamCake() ? AgricultureItems.CREAM_CAKE_SLICE.get() : isChocolateCake() ? AgricultureItems.CHOCOLATE_CAKE_SLICE.get() : isCheese() ? AgricultureItems.CHEESE_SLICE.get() : isButter() ? firmalifeButter() : isJelly() ? AgricultureItems.JELLY_SLICE.get() : isSugar() ? AgricultureItems.SUGAR_PIECE.get() : AgricultureItems.PIE_SLICE.get(); }
     private net.minecraft.world.item.Item firmalifeButter() {
         return BuiltInRegistries.ITEM.get(ResourceLocation.parse("firmalife:food/butter"));

@@ -1,0 +1,34 @@
+{
+  "name": "Nut trees and leaf states",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:pistachio",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Three B nut trees",
+      "text": "B adds pistachio, cashew and macadamia. Each has a sapling, leaves, nut and shell. Existing TFC and AFC nut leaves also receive the B nut state."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Leaf state",
+      "text": "Leaves use four nut_state values:$(br2)$(li)0 = none;$(li)1 = flower;$(li)2 = green;$(li)3 = ripe.$(br2)Spring advances to flower, summer to green, autumn to ripe and winter clears the state."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ripe drop",
+      "text": "Ripe leaves occasionally drop one nut and one shell. The drop is seasonal; it does not happen outside the ripe state."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:pistachio",
+      "title": "Nut",
+      "text": "Ripe nut leaves drop nuts and shells seasonally."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:nut_sapling/pistachio",
+      "title": "Nut sapling",
+      "text": "Plant the sapling to grow the tree; leaves carry nut_state."
+    }
+  ]
+}

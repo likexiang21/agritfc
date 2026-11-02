@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/rosemary"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/rosemary",
+    "count": 1
+  },
+  "grind_time": 4
+}

@@ -29,8 +29,7 @@ public final class AgricultureCreativeTab {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN =
         CREATIVE_TABS.register("main", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + TFCAgriculturePlus.MOD_ID + ".main"))
-            // TODO 批次 5 起换成本模组的代表物（目前用原版面包占位）
-            .icon(() -> new ItemStack(net.minecraft.world.item.Items.BREAD))
+            .icon(() -> new ItemStack(AgricultureItems.WET_GRASS.get()))
             .displayItems((params, output) -> {
                 // ---------------- 批次 1：按材质组加入 ----------------
 
@@ -131,6 +130,61 @@ public final class AgricultureCreativeTab {
                 output.accept(AgricultureItems.SAWDUST_SOUP.get());
                 output.accept(AgricultureItems.SAWDUST_DOUGH.get());
                 output.accept(AgricultureItems.SAWDUST_BREAD.get());
+                // P0 crop foundation: B-owned wet grass and 16 grain bundles.
+                output.accept(AgricultureItems.WET_GRASS.get());
+                for (final var bundle : AgricultureItems.GRAIN_BUNDLES.values()) {
+                    output.accept(bundle.get());
+                }
+                for (final var nut : AgricultureItems.NUTS.values()) {
+                    output.accept(nut.get());
+                }
+                for (final var ground : AgricultureItems.GROUND_NUTS.values()) {
+                    output.accept(ground.get());
+                }
+                for (final var shell : AgricultureItems.NUT_SHELLS.values()) {
+                    output.accept(shell.get());
+                }
+                for (final var seed : AgricultureSpices.SEEDS.values()) {
+                    output.accept(seed.get());
+                }
+                for (final var product : AgricultureSpices.PRODUCTS.values()) {
+                    output.accept(product.get());
+                }
+                for (final var waste : AgricultureShrubs.BUSH_WASTE.values()) {
+                    output.accept(waste.get());
+                }
+                for (final var waste : AgricultureSpices.WASTES.values()) {
+                    output.accept(waste.get());
+                }
+                for (final var ground : AgricultureSpices.GROUND.values()) {
+                    output.accept(ground.get());
+                }
+                for (final var corm : AgricultureSpices.CORMS.values()) {
+                    output.accept(corm.get());
+                }
+                for (final var root : AgricultureSpices.ROOTS.values()) {
+                    output.accept(root.get());
+                }
+                for (final var waste : AgricultureItems.CROP_WASTE.values()) {
+                    output.accept(waste.get());
+                }
+                for (final var mushroom : AgricultureBlocks.WILD_MUSHROOMS.values()) {
+                    output.accept(mushroom.get());
+                }
+                output.accept(AgricultureBlocks.MUSHROOM_BAG.get());
+                output.accept(AgricultureBlocks.NURSERY_TRAY.get());
+                output.accept(AgricultureBlocks.SPICE_TRELLIS.get());
+                output.accept(AgricultureBlocks.STRAWBERRY_CROP.get().asItem());
+                for (final var sapling : AgricultureBlocks.NUT_SAPLINGS.values()) {
+                    output.accept(sapling.get().asItem());
+                }
+                for (final var sapling : AgricultureBlocks.SPICE_TREE_SAPLINGS.values()) {
+                    output.accept(sapling.get().asItem());
+                }
+                output.accept(AgricultureItems.SEEDLING.get());
+                for (final var stock : AgricultureItems.PROPAGATION_STOCKS.values()) {
+                    output.accept(stock.get());
+                }
                 for (final var entry : io.github.likexiang21.tfcplus.agriculture.common.timber.TimberBlocks.ALL.entrySet()) {
                     if (entry.getValue().get().asItem() != net.minecraft.world.item.Items.AIR) {
                         output.accept(entry.getValue().get());
@@ -146,8 +200,6 @@ public final class AgricultureCreativeTab {
                 output.accept(AgricultureItems.SILK_THREAD.get());
                 for (final var item : AgriculturePlates.ITEMS_BY_VARIANT.values()) output.accept(item.get());
                 for (final var item : AgriculturePlates.UNFIRED_BY_VARIANT.values()) output.accept(item.get());
-                output.accept(AgricultureBowls.WOOD_BOWL.get());
-                output.accept(AgricultureBowls.CERAMIC_BOWL.get());
                 for (final var item : AgricultureSpatulas.ALL.values()) output.accept(item.get());
                 for (final var item : AgricultureSpatulas.HEADS.values()) output.accept(item.get());
                 for (final var can : AgricultureItems.METAL_CANS.values()) output.accept(can.get());

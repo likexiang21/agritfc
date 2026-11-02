@@ -1,17 +1,17 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/tualang"
+    "L": {
+      "item": "afc:wood/lumber/tualang"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:fruit_bowl/tualang",
-    "count": 1
-  },
   "pattern": [
-    " P ",
-    "PPP",
-    "P P"
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:fruit_bowl/tualang"
+  }
 }

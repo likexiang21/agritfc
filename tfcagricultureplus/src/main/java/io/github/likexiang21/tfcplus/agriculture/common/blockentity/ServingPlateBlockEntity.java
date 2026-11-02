@@ -6,11 +6,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import net.dries007.tfc.common.blockentities.TFCBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 /** Stores the whole plated dish stack so TFC's creation date survives placement. */
-public final class ServingPlateBlockEntity extends BlockEntity {
+public final class ServingPlateBlockEntity extends TFCBlockEntity {
     private ItemStack plateStack = ItemStack.EMPTY;
 
     public ServingPlateBlockEntity(BlockPos pos, BlockState state) {
@@ -22,15 +22,12 @@ public final class ServingPlateBlockEntity extends BlockEntity {
 
     public void setPlateStack(ItemStack stack) {
         this.plateStack = stack.copyWithCount(1);
-        setChanged();
-        if (level != null && !level.isClientSide()) {
-            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-        }
+        markForSync();
     }
 
     public void clearPlate() {
         plateStack = ItemStack.EMPTY;
-        setChanged();
+        markForSync();
     }
 
     public ItemStack dropStack() {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "tfc:block/wood/leaves/sequoia_fluff"
+  }
+}

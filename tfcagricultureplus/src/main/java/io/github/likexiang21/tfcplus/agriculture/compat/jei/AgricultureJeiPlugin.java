@@ -1,6 +1,7 @@
 package io.github.likexiang21.tfcplus.agriculture.compat.jei;
 
 import io.github.likexiang21.tfcplus.agriculture.TFCAgriculturePlus;
+import com.eerussianguy.firmalife.compat.jei.FLJEIPlugin;
 import io.github.likexiang21.tfcplus.agriculture.common.recipe.AgricultureRecipeTypes;
 import io.github.likexiang21.tfcplus.agriculture.common.recipe.CuttingBoardRecipe;
 import io.github.likexiang21.tfcplus.agriculture.common.recipe.MortarRecipe;
@@ -17,7 +18,15 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 
 /**
@@ -102,6 +111,7 @@ public final class AgricultureJeiPlugin implements IModPlugin {
             .map(net.minecraft.world.item.crafting.RecipeHolder::value).toList();
         registration.addRecipes(CUTTING_BOARD, cuttingRecipes);
         TFCAgriculturePlus.LOGGER.info("[JEI] Registered {} cutting-board recipes", cuttingRecipes.size());
+        addDeviceInfo(registration);
         // The pan is a dynamic multi-ingredient device; its results cannot be represented
         // as a fixed recipe list. Ingredient eligibility is shown by the pan tooltip. 
         // Hide compatibility-only entries and the disabled TFC strawberry bush from
@@ -152,6 +162,46 @@ public final class AgricultureJeiPlugin implements IModPlugin {
                 MORTAR);
         }
         // The pan has no fixed recipe category; it is a dynamic composition device.
+        // B drying racks reuse Firmalife's drying recipe type, so expose them as catalysts
+        // in Firmalife's existing JEI category instead of inventing a duplicate category.
+        for (final var block : AgricultureBlocks.DRYING_RACKS.values()) {
+            registration.addRecipeCatalyst(new ItemStack(block.get()), FLJEIPlugin.DRYING);
+        }
+        // In-world recipes are performed with an axe or a saw; expose those tools as catalysts.
+        final TagKey<Item> sawTag = TagKey.create(Registries.ITEM, ResourceLocation.parse("c:tools/saw"));
+        for (final Holder<Item> axe : BuiltInRegistries.ITEM.getTagOrEmpty(ItemTags.AXES)) {
+            registration.addRecipeCatalyst(new ItemStack(axe.value()), IN_WORLD);
+        }
+        for (final Holder<Item> saw : BuiltInRegistries.ITEM.getTagOrEmpty(sawTag)) {
+            registration.addRecipeCatalyst(new ItemStack(saw.value()), IN_WORLD);
+        }
+    }
+
+    private static void addDeviceInfo(IRecipeRegistration registration) {
+        addInfo(registration, AgricultureBlocks.COOKING_PAN.get().asItem(), "cooking_pan");
+        addInfo(registration, AgricultureBlocks.NURSERY_TRAY.get().asItem(), "nursery_tray");
+        addInfo(registration, AgricultureBlocks.MUSHROOM_BAG.get().asItem(), "mushroom_bag");
+        addInfo(registration, AgricultureBlocks.SILKWORM_RACK.get().asItem(), "silkworm_rack");
+        addInfo(registration, AgricultureBlocks.DRYING_RACKS.get("drying_rack/oak").get().asItem(), "drying_rack");
+        addInfo(registration, AgricultureBlocks.WOODEN_CUTTING_BOARDS.get("cutting_board/oak").get().asItem(), "cutting_board");
+        addInfo(registration, AgricultureBlocks.LOG_CUTTING_BOARDS.get("log_cutting_board/oak").get().asItem(), "log_cutting_board");
+        addInfo(registration, AgricultureBlocks.KNIFE_BLOCKS.get("knife_block/oak").get().asItem(), "knife_block");
+        addInfo(registration, AgricultureBlocks.MORTARS.get("mortar/granite").get().asItem(), "mortar");
+        addInfo(registration, AgricultureBlocks.KITCHEN_COUNTER_CABINETS.get("counter_cabinet/oak").get().asItem(), "kitchen_storage");
+        for (final var can : io.github.likexiang21.tfcplus.agriculture.common.registry.AgricultureItems.METAL_CANS.values()) {
+            addInfo(registration, can.get(), "metal_can");
+        }
+        for (final var plate : io.github.likexiang21.tfcplus.agriculture.common.registry.AgriculturePlates.ITEMS_BY_VARIANT.values()) {
+            addInfo(registration, plate.get(), "serving_plate");
+        }
+        for (final var stock : io.github.likexiang21.tfcplus.agriculture.common.registry.AgricultureItems.PROPAGATION_STOCKS.values()) {
+            addInfo(registration, stock.get(), "propagation_stock");
+        }
+    }
+
+    private static void addInfo(IRecipeRegistration registration, net.minecraft.world.item.Item item, String key) {
+        registration.addIngredientInfo(new ItemStack(item), VanillaTypes.ITEM_STACK,
+            Component.translatable("jei.tfcagricultureplus.info." + key));
     }
 
     private static List<InWorldRecipe> getInWorldRecipes() {
@@ -165,6 +215,20 @@ public final class AgricultureJeiPlugin implements IModPlugin {
 
     @Override
     public void onRuntimeAvailable(mezz.jei.api.runtime.IJeiRuntime runtime) {
+        // Compatibility guard: Firmalife 3.0.15's oven category references a TFC config class
+        // that is absent in the installed TFC build. If so, hide the category instead of letting
+        // its draw path crash the client.
+        try {
+            Class.forName("net.dries007.tfc.config.TemperatureDisplayStyle", false,
+                AgricultureJeiPlugin.class.getClassLoader());
+        } catch (ClassNotFoundException missing) {
+            try {
+                runtime.getRecipeManager().hideRecipeCategory(FLJEIPlugin.OVEN);
+                TFCAgriculturePlus.LOGGER.warn("[JEI] hid firmalife:oven category: missing TemperatureDisplayStyle");
+            } catch (RuntimeException | LinkageError hideFailure) {
+                TFCAgriculturePlus.LOGGER.warn("[JEI] could not hide firmalife:oven category", hideFailure);
+            }
+        }
         if (!Boolean.getBoolean("tfcagricultureplus.debug")) return;
         final var manager = runtime.getRecipeManager();
         TFCAgriculturePlus.LOGGER.info("[JEI-VERIFY] visible cutting={} in_world={}",

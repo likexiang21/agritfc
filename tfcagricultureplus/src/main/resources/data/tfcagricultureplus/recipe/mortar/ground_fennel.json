@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/fennel"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/fennel",
+    "count": 1
+  },
+  "grind_time": 4
+}

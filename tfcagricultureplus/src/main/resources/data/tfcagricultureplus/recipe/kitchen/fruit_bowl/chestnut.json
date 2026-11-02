@@ -1,17 +1,17 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "tfc:wood/planks/chestnut"
+    "L": {
+      "item": "tfc:wood/lumber/chestnut"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:fruit_bowl/chestnut",
-    "count": 1
-  },
   "pattern": [
-    " P ",
-    "PPP",
-    "P P"
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:fruit_bowl/chestnut"
+  }
 }

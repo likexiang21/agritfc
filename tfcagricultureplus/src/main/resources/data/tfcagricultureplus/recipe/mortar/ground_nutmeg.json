@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/nutmeg"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/nutmeg",
+    "count": 1
+  },
+  "grind_time": 4
+}

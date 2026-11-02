@@ -1,0 +1,39 @@
+{
+  "name": "Seeds and nursery",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:nursery_tray",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Direct sowing and nursery",
+      "text": "TFC seeds keep TFC direct sowing. A and B seeds follow their species propagation method:$(br2)$(li)seed-direct species can be sown on farmland normally;$(li)nursery, runner, tuber, rhizome, corm, crown and division species must go through the nursery tray.$(br2)The planted seed still needs a valid seedling transplant for non-direct species."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Nursery tray",
+      "text": "Place an A or B seed in the nursery tray. The tray grows a seedling; take the seedling out when it is ready."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Transplant",
+      "text": "Right-click suitable farmland with a seedling to plant it. The tray, seed and seedling keep their data across save and chunk reload."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Seed treatment",
+      "text": "Seeds may carry one of three saved treatment states: soaked, germinated or dressed. The treatment is stored on the seed stack, not in a global player flag."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:nursery_tray",
+      "title": "Nursery tray",
+      "text": "The tray is the A/B seed propagation station. TFC seeds do not need it."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:seedling",
+      "title": "Seedling",
+      "text": "Take the seedling out of the tray, then transplant it onto valid farmland."
+    }
+  ]
+}

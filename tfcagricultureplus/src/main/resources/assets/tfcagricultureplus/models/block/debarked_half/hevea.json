@@ -1,9 +1,9 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_half",
   "textures": {
-    "side": "afc:block/wood/stripped_log/hevea",
-    "top": "afc:block/wood/stripped_log_top/hevea",
-    "inner": "afc:block/wood/stripped_log/hevea",
-    "particle": "afc:block/wood/stripped_log/hevea"
+    "side": "afc:block/wood/sheet/hevea",
+    "top": "afc:block/wood/log_top/hevea",
+    "inner": "afc:block/wood/sheet/hevea",
+    "particle": "afc:block/wood/sheet/hevea"
   }
 }

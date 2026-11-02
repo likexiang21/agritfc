@@ -1,17 +1,21 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "tfc:wood/planks/hickory"
+    "L": {
+      "item": "tfc:wood/lumber/hickory"
+    },
+    "G": {
+      "item": "minecraft:glass"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:food_display/hickory",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "P P",
-    "PPP"
+    "LLL",
+    "LGL",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:food_display/hickory"
+  }
 }

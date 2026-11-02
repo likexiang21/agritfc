@@ -106,21 +106,13 @@ public class KnifeRackBlock extends HorizontalDirectionalBlock
                     net.minecraft.sounds.SoundSource.BLOCKS, 0.6F, 1.2F);
                 return net.minecraft.world.InteractionResult.CONSUME;
             }
-            // 🆕 区分"满了"与"这个物品不能放"
-            player.displayClientMessage(
-                net.minecraft.network.chat.Component.translatable(
-                    blockEntity.isItemValid(held)
-                        ? "message.tfcagricultureplus.knife_block.full"
-                        : "message.tfcagricultureplus.knife_block.invalid"), true);
+            // Full or invalid item: keep the existing state; no popup text.
             return net.minecraft.world.InteractionResult.CONSUME;
         }
 
         // 取出
         final net.minecraft.world.item.ItemStack droppedStack = blockEntity.takeLast();
         if (droppedStack.isEmpty()) {
-            player.displayClientMessage(
-                net.minecraft.network.chat.Component.translatable(
-                    "message.tfcagricultureplus.knife_block.empty"), true);
             return net.minecraft.world.InteractionResult.CONSUME;
         }
         if (!player.getInventory().add(droppedStack)) {

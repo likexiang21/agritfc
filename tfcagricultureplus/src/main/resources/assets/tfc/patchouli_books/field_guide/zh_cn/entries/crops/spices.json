@@ -1,0 +1,39 @@
+{
+  "name": "香料",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:spice/basil",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "两种形态",
+      "text": "B 有 15 种作物形态香料与 5 种树形态香料。作物香料由香料种子种出；树香料由香料树苗长成。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "收获",
+      "text": "成熟作物香料按普通作物收获。树香料的产物按物种从树叶或树干掉落。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "繁殖",
+      "text": "需要球茎或根部的作物香料使用对应繁殖材料；树香料使用树苗。香料支架是树形态的支撑/装饰方块。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "加工",
+      "text": "香料产物用石臼研磨成香料粉。香料粉是炒锅与其它厨房配方的调味输入。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:spice/basil",
+      "title": "香料产物",
+      "text": "成熟香料掉落产物；用石臼研磨。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:ground_spice/basil",
+      "title": "香料粉",
+      "text": "香料粉是炒锅的调味输入。"
+    }
+  ]
+}

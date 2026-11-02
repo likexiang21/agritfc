@@ -1,17 +1,18 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "tfc:wood/planks/spruce"
+    "L": {
+      "item": "tfc:wood/lumber/spruce"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:counter_cabinet/spruce",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "PPP",
-    "   "
+    "LLL",
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:counter_cabinet/spruce"
+  }
 }

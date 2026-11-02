@@ -1,16 +1,20 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/cypress"
+    "L": {
+      "item": "afc:wood/lumber/cypress"
+    },
+    "R": {
+      "tag": "c:rods/wooden"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:spice_rack/cypress",
-    "count": 1
-  },
   "pattern": [
-    "P P",
-    "PPP"
+    "LLL",
+    "R R"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:spice_rack/cypress"
+  }
 }

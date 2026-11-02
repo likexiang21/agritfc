@@ -1,17 +1,17 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/ipe"
+    "L": {
+      "item": "afc:wood/lumber/ipe"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:fruit_bowl/ipe",
-    "count": 1
-  },
   "pattern": [
-    " P ",
-    "PPP",
-    "P P"
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:fruit_bowl/ipe"
+  }
 }

@@ -35,11 +35,14 @@ public final class TimberBlocks {
                 .strength(0.5F).noOcclusion()));
 
     static {
+        ALL.put("lumber_pile", LUMBER_PILE);
         Stream.concat(AgricultureBlocks.TFC_WOODS.stream(), AgricultureBlocks.AFC_WOODS.stream()).forEach(wood -> {
             for (int kind = 0; kind < 3; kind++) {
                 final int part = kind;
                 String name = List.of("debarked_log/", "debarked_half/", "debarked_quarter/").get(kind) + wood;
-                var block = BLOCKS.register(name, () -> new TimberPieceBlock(AgricultureBlocks.woodProps().strength(7).requiresCorrectToolForDrops(), part));
+                var block = BLOCKS.register(name, () -> part == 0
+                    ? new TimberPieceBlock(AgricultureBlocks.woodProps().strength(7).requiresCorrectToolForDrops(), part)
+                    : new DirectionalTimberPieceBlock(AgricultureBlocks.woodProps().strength(7).requiresCorrectToolForDrops(), part));
                 ALL.put(name, block);
                 if (AgricultureBlocks.TFC_WOODS.contains(wood)) LEGACY_TFC_PIECES.add(name);
                 AgricultureItems.ITEMS.register(name, () -> new PieceItem(block.get(), new Item.Properties()));
@@ -48,7 +51,11 @@ public final class TimberBlocks {
     }
 
     public static int weight(net.minecraft.world.item.ItemStack stack) {
-        return stack.getItem() instanceof BlockItem bi && bi.getBlock() instanceof TimberPieceBlock piece ? 4 >> piece.pieceKind : 4;
+        if (stack.getItem() instanceof BlockItem bi) {
+            if (bi.getBlock() instanceof TimberPieceBlock piece) return 4 >> piece.pieceKind;
+            if (bi.getBlock() instanceof DirectionalTimberPieceBlock piece) return 4 >> piece.pieceKind;
+        }
+        return 4;
     }
 
     /** Normalize TFC/AFC logs and B's split pieces to their shared tree species. */

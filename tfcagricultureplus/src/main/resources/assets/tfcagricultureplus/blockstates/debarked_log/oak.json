@@ -1,20 +1,7 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_log/oak",
-      "y": 0
-    },
-    "facing=east": {
-      "model": "tfcagricultureplus:block/debarked_log/oak",
-      "y": 90
-    },
-    "facing=south": {
-      "model": "tfcagricultureplus:block/debarked_log/oak",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "tfcagricultureplus:block/debarked_log/oak",
-      "y": 270
+    "": {
+      "model": "tfcagricultureplus:block/debarked_log/oak"
     }
   }
 }

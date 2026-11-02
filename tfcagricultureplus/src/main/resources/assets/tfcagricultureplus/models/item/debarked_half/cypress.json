@@ -1,3 +1,6 @@
 {
-  "parent": "tfcagricultureplus:block/debarked_half/cypress"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "afc:item/wood/log/cypress"
+  }
 }

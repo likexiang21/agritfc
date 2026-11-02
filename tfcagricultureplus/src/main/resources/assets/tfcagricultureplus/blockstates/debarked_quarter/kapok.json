@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_quarter/kapok",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_quarter/kapok"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_quarter/kapok",

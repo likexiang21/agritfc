@@ -1,17 +1,18 @@
 {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
-    "P": {
-      "item": "afc:wood/planks/mahogany"
+    "L": {
+      "item": "afc:wood/lumber/mahogany"
     }
   },
-  "result": {
-    "id": "tfcagricultureplus:counter_cabinet/mahogany",
-    "count": 1
-  },
   "pattern": [
-    "PPP",
-    "PPP",
-    "   "
+    "LLL",
+    "L L",
+    "LLL"
   ],
-  "type": "minecraft:crafting_shaped"
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:counter_cabinet/mahogany"
+  }
 }

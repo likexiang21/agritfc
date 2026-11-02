@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/sage"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/sage",
+    "count": 1
+  },
+  "grind_time": 4
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "tfc:wood/lumber/willow"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "PPP",
+    " S ",
+    "PPP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcagricultureplus:knife_block/willow"
+  }
+}

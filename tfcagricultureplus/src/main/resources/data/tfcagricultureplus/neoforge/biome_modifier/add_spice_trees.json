@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#tfcagricultureplus:spice_tree_biomes",
+  "features": [
+    "tfcagricultureplus:spice_sapling_pimento",
+    "tfcagricultureplus:spice_sapling_cinnamon",
+    "tfcagricultureplus:spice_sapling_clove",
+    "tfcagricultureplus:spice_sapling_nutmeg",
+    "tfcagricultureplus:spice_sapling_star_anise"
+  ],
+  "step": "vegetal_decoration"
+}

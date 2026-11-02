@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_quarter/rosewood",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_quarter/rosewood"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_quarter/rosewood",

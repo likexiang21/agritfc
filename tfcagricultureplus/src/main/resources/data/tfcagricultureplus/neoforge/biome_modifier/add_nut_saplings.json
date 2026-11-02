@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#tfcagricultureplus:nut_tree_biomes",
+  "features": [
+    "tfcagricultureplus:nut_sapling_pistachio",
+    "tfcagricultureplus:nut_sapling_cashew",
+    "tfcagricultureplus:nut_sapling_macadamia"
+  ],
+  "step": "vegetal_decoration"
+}

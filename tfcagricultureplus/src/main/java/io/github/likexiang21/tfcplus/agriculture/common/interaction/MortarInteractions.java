@@ -87,7 +87,8 @@ public final class MortarInteractions {
     }
 
     private static void message(Player player, String key, Object... args) {
-        player.displayClientMessage(Component.translatable(MESSAGE + key, args), true);
+        player.displayClientMessage(
+            net.minecraft.network.chat.Component.translatable(MESSAGE + key, args), true);
     }
 
     private MortarInteractions() {}

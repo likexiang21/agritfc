@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:hickory_nut"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_nut/hickory_nut",
+    "count": 1
+  },
+  "grind_time": 4
+}

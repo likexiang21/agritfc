@@ -1,0 +1,11 @@
+{
+  "type": "tfcagricultureplus:mortar",
+  "ingredient": {
+    "item": "tfcagricultureplus:spice/cilantro"
+  },
+  "result": {
+    "id": "tfcagricultureplus:ground_spice/cilantro",
+    "count": 1
+  },
+  "grind_time": 4
+}

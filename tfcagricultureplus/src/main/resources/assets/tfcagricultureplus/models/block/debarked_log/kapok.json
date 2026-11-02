@@ -1,9 +1,8 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_log",
   "textures": {
-    "side": "tfc:block/wood/stripped_log/kapok",
-    "top": "tfc:block/wood/stripped_log_top/kapok",
-    "inner": "tfc:block/wood/stripped_log/kapok",
-    "particle": "tfc:block/wood/stripped_log/kapok"
+    "side": "tfc:block/wood/sheet/kapok",
+    "top": "tfc:block/wood/log_top/kapok",
+    "particle": "tfc:block/wood/sheet/kapok"
   }
 }

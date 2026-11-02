@@ -1,9 +1,8 @@
 {
   "parent": "tfcagricultureplus:block/timber/debarked_log",
   "textures": {
-    "side": "tfc:block/wood/stripped_log/acacia",
-    "top": "tfc:block/wood/stripped_log_top/acacia",
-    "inner": "tfc:block/wood/stripped_log/acacia",
-    "particle": "tfc:block/wood/stripped_log/acacia"
+    "side": "tfc:block/wood/sheet/acacia",
+    "top": "tfc:block/wood/log_top/acacia",
+    "particle": "tfc:block/wood/sheet/acacia"
   }
 }

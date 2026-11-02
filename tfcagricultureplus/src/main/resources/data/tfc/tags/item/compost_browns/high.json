@@ -1,0 +1,17 @@
+{
+  "values": [
+    "minecraft:paper",
+    "tfc:jute_fiber",
+    "tfc:groundcover/humus",
+    "tfc:groundcover/driftwood",
+    "tfc:groundcover/pinecone",
+    "tfcagricultureplus:nut_shell/acorn",
+    "tfcagricultureplus:nut_shell/beechnut",
+    "tfcagricultureplus:nut_shell/cashew",
+    "tfcagricultureplus:nut_shell/chestnut",
+    "tfcagricultureplus:nut_shell/hickory_nut",
+    "tfcagricultureplus:nut_shell/macadamia",
+    "tfcagricultureplus:nut_shell/pine_nut",
+    "tfcagricultureplus:nut_shell/pistachio"
+  ]
+}

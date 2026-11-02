@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tfcagricultureplus:block/debarked_half/sequoia",
-      "y": 0
+      "model": "tfcagricultureplus:block/debarked_half/sequoia"
     },
     "facing=east": {
       "model": "tfcagricultureplus:block/debarked_half/sequoia",

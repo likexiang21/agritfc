@@ -22,6 +22,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.fluids.FluidUtil;
 
 /** A small family of wood kitchen furniture sharing one TFC inventory contract. */
 public final class KitchenStorageBlock extends HorizontalDirectionalBlock implements EntityBlock {
@@ -91,6 +92,21 @@ public final class KitchenStorageBlock extends HorizontalDirectionalBlock implem
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                 Player player, BlockHitResult hit) {
+        if (player.isShiftKeyDown() && storageKind != StorageKind.SINK_CABINET
+            && level.getBlockEntity(pos) instanceof KitchenStorageBlockEntity storage) {
+            if (level.isClientSide()) {
+                return InteractionResult.SUCCESS;
+            }
+            final net.minecraft.world.item.ItemStack out = storage.quickExtract();
+            if (!out.isEmpty()) {
+                if (!player.getInventory().add(out)) {
+                    player.drop(out, false);
+                }
+                level.playSound(null, pos, net.minecraft.sounds.SoundEvents.ITEM_PICKUP,
+                    net.minecraft.sounds.SoundSource.BLOCKS, 0.6F, 1.1F);
+                return InteractionResult.CONSUME;
+            }
+        }
         return open(level, pos, player);
     }
 
@@ -98,6 +114,36 @@ public final class KitchenStorageBlock extends HorizontalDirectionalBlock implem
     protected ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state,
                                                Level level, BlockPos pos, Player player,
                                                net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        // Sink cabinets expose their internal water tank to buckets, jugs and cans.
+        if (storageKind == StorageKind.SINK_CABINET
+            && level.getBlockEntity(pos) instanceof KitchenStorageBlockEntity storage
+            && storage.sinkTank() != null
+            && FluidUtil.interactWithFluidHandler(player, hand, storage.sinkTank())) {
+            return ItemInteractionResult.sidedSuccess(level.isClientSide());
+        }
+        // UI-light quick deposit/extract with sneak; normal right-click still opens the menu.
+        if (player.isShiftKeyDown() && storageKind != StorageKind.SINK_CABINET
+            && level.getBlockEntity(pos) instanceof KitchenStorageBlockEntity storage) {
+            if (level.isClientSide()) {
+                return ItemInteractionResult.sidedSuccess(true);
+            }
+            if (!stack.isEmpty() && storage.quickInsert(stack)) {
+                level.playSound(null, pos, net.minecraft.sounds.SoundEvents.ITEM_FRAME_ADD_ITEM,
+                    net.minecraft.sounds.SoundSource.BLOCKS, 0.6F, 1.0F);
+                return ItemInteractionResult.sidedSuccess(false);
+            }
+            if (stack.isEmpty()) {
+                final net.minecraft.world.item.ItemStack out = storage.quickExtract();
+                if (!out.isEmpty()) {
+                    if (!player.getInventory().add(out)) {
+                        player.drop(out, false);
+                    }
+                    level.playSound(null, pos, net.minecraft.sounds.SoundEvents.ITEM_PICKUP,
+                        net.minecraft.sounds.SoundSource.BLOCKS, 0.6F, 1.1F);
+                    return ItemInteractionResult.sidedSuccess(false);
+                }
+            }
+        }
         return ItemInteractionResult.sidedSuccess(open(level, pos, player).consumesAction());
     }
 

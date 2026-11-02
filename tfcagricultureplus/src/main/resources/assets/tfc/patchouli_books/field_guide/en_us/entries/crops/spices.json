@@ -1,0 +1,39 @@
+{
+  "name": "Spices",
+  "category": "tfc:agriculture_plus_crops",
+  "icon": "tfcagricultureplus:spice/basil",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Two forms",
+      "text": "B has fifteen crop-form spices and five tree-form spices. Crop spices are grown from spice seeds; tree spices grow from spice saplings."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Harvest",
+      "text": "Mature crop spices are harvested like other crops. Tree spices drop their product from the leaves or trunk according to their species."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Propagation",
+      "text": "Crop spices use corms or roots where the species requires them; tree spices use saplings. The trellis is a decoration/support block for the tree form."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Processing",
+      "text": "Spice products are ground in a stone mortar into ground spice. Ground spices are the seasoning inputs for the pan and other kitchen recipes."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:spice/basil",
+      "title": "Spice product",
+      "text": "Mature spices drop their product. Grind it in the stone mortar."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tfcagricultureplus:ground_spice/basil",
+      "title": "Ground spice",
+      "text": "Ground spices are the seasoning input for the pan."
+    }
+  ]
+}
